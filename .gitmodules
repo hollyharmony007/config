@@ -1,0 +1,108 @@
+[submodule "submodules/altercmd"]
+	path = submodules/altercmd
+	url = ../vim-altercmd
+[submodule "submodules/arpeggio"]
+	path = submodules/arpeggio
+	url = ../vim-arpeggio
+[submodule "submodules/bundle"]
+	path = submodules/bundle
+	url = ../vim-bundle
+[submodule "submodules/exjumplist"]
+	path = submodules/exjumplist
+	url = ../vim-exjumplist
+[submodule "submodules/fakeclip"]
+	path = submodules/fakeclip
+	url = ../vim-fakeclip
+[submodule "submodules/flydiff"]
+	path = submodules/flydiff
+	url = ../vim-flydiff
+[submodule "submodules/grex"]
+	path = submodules/grex
+	url = ../vim-grex
+[submodule "submodules/metarw"]
+	path = submodules/metarw
+	url = ../vim-metarw
+[submodule "submodules/metarw-git"]
+	path = submodules/metarw-git
+	url = ../vim-metarw-git
+[submodule "submodules/narrow"]
+	path = submodules/narrow
+	url = ../vim-narrow
+[submodule "submodules/operator-replace"]
+	path = submodules/operator-replace
+	url = ../vim-operator-replace
+[submodule "submodules/operator-user"]
+	path = submodules/operator-user
+	url = ../vim-operator-user
+[submodule "submodules/repeat"]
+	path = submodules/repeat
+	url = ../vim-repeat
+[submodule "submodules/scratch"]
+	path = submodules/scratch
+	url = ../vim-scratch
+[submodule "submodules/skeleton"]
+	path = submodules/skeleton
+	url = ../vim-skeleton
+[submodule "submodules/smartchr"]
+	path = submodules/smartchr
+	url = ../vim-smartchr
+[submodule "submodules/smarttill"]
+	path = submodules/smarttill
+	url = ../vim-smarttill
+[submodule "submodules/smartword"]
+	path = submodules/smartword
+	url = ../vim-smartword
+[submodule "submodules/submode"]
+	path = submodules/submode
+	url = ../vim-submode
+[submodule "submodules/surround"]
+	path = submodules/surround
+	url = ../vim-surround
+[submodule "submodules/textobj-datetime"]
+	path = submodules/textobj-datetime
+	url = ../vim-textobj-datetime
+[submodule "submodules/textobj-diff"]
+	path = submodules/textobj-diff
+	url = ../vim-textobj-diff
+[submodule "submodules/textobj-django-template"]
+	path = submodules/textobj-django-template
+	url = ../vim-textobj-django-template
+[submodule "submodules/textobj-entire"]
+	path = submodules/textobj-entire
+	url = ../vim-textobj-entire
+[submodule "submodules/textobj-fold"]
+	path = submodules/textobj-fold
+	url = ../vim-textobj-fold
+[submodule "submodules/textobj-function"]
+	path = submodules/textobj-function
+	url = ../vim-textobj-function
+[submodule "submodules/textobj-indent"]
+	path = submodules/textobj-indent
+	url = ../vim-textobj-indent
+[submodule "submodules/textobj-jabraces"]
+	path = submodules/textobj-jabraces
+	url = ../vim-textobj-jabraces
+[submodule "submodules/textobj-lastpat"]
+	path = submodules/textobj-lastpat
+	url = ../vim-textobj-lastpat
+[submodule "submodules/textobj-syntax"]
+	path = submodules/textobj-syntax
+	url = ../vim-textobj-syntax
+[submodule "submodules/textobj-user"]
+	path = submodules/textobj-user
+	url = ../vim-textobj-user
+[submodule "submodules/vcsi"]
+	path = submodules/vcsi
+	url = ../vim-vcsi
+[submodule "submodules/vspec"]
+	path = submodules/vspec
+	url = ../vim-vspec
+[submodule "submodules/wwwsearch"]
+	path = submodules/wwwsearch
+	url = ../vim-wwwsearch
+[submodule "submodules/xml-autons"]
+	path = submodules/xml-autons
+	url = ../vim-xml-autons
+[submodule "submodules/xml-move"]
+	path = submodules/xml-move
+	url = ../vim-xml-move
