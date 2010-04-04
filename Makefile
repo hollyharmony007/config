@@ -49,7 +49,9 @@ fetch:
 	git submodule foreach ' \
 	  git fetch origin master --tags && \
 	  git checkout master && \
-	  git reset --hard FETCH_HEAD \
+	  git reset --hard FETCH_HEAD && \
+	  cd $(toplevel_dir) && \
+	  git add $$path \
 	'
 
 
