@@ -47,7 +47,7 @@ all:
 .PHONY: fetch
 fetch:
 	git submodule foreach ' \
-	  git fetch origin master && \
+	  git fetch origin master --tags && \
 	  git checkout master && \
 	  git reset --hard FETCH_HEAD \
 	'
