@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Vim: operator-user - Define your own operator easily</title>
+<meta name="Generator" content="Vim/7.2" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+<!--
+.Statement { color: #008080; font-weight: bold; }
+.Identifier { color: #804000; text-decoration: underline; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Comment { color: #c00000; font-weight: bold; }
+.Special { color: #c000c0; font-weight: bold; }
+.Type { color: #008000; text-decoration: underline; }
+pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+.Ignore { color: #ffffff; }
+.Constant { color: #0000c0; text-decoration: underline; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="Ignore">*</span><span class="Constant" id="operator-user.txt">operator-user.txt</span><span class="Ignore">*</span>     Define your own operator easily
+
+Version 0.0.5
+Script ID: 2692
+Copyright (C) 2009 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+License: MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    &quot;Software&quot;), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="operator-user-contents">operator-user-contents</span><span class="Ignore">*</span>
+
+Introduction            <span class="Ignore">|</span><a href="operator-user.html#operator-user-introduction"><span class="Identifier">operator-user-introduction</span></a><span class="Ignore">|</span>
+Interface               <span class="Ignore">|</span><a href="operator-user.html#operator-user-interface"><span class="Identifier">operator-user-interface</span></a><span class="Ignore">|</span>
+  Functions               <span class="Ignore">|</span><a href="operator-user.html#operator-user-functions"><span class="Identifier">operator-user-functions</span></a><span class="Ignore">|</span>
+Examples                <span class="Ignore">|</span><a href="operator-user.html#operator-user-examples"><span class="Identifier">operator-user-examples</span></a><span class="Ignore">|</span>
+Bugs                    <span class="Ignore">|</span><a href="operator-user.html#operator-user-bugs"><span class="Identifier">operator-user-bugs</span></a><span class="Ignore">|</span>
+Changelog               <span class="Ignore">|</span><a href="operator-user.html#operator-user-changelog"><span class="Identifier">operator-user-changelog</span></a><span class="Ignore">|</span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="operator-user-introduction">operator-user-introduction</span><span class="Ignore">*</span>
+
+<span class="Ignore">*</span><span class="Constant" id="operator-user">operator-user</span><span class="Ignore">*</span> is a Vim library plugin to provide an easy way to define your
+own <span class="Ignore">|</span><span class="Identifier">operator</span><span class="Ignore">|</span>.  Though there are several pitfalls to define operators, you
+don't have to take care of them with <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span> which are
+provided by this library plugin.
+
+For example, the following code defines operator &quot;_&quot; to adjust the height of
+the current window to the same as the target range:
+<span class="Ignore">&gt;</span>
+<span class="Comment">        map _  &lt;Plug&gt;(operator-adjust)</span>
+<span class="Comment">        call operator#user#define('adjust', 'Op_adjust_window_height')</span>
+<span class="Comment">        function! Op_adjust_window_height(motion_wiseness)</span>
+<span class="Comment">          execute (line(&quot;']&quot;) - line(&quot;'[&quot;) + 1) 'wincmd' '_'</span>
+<span class="Comment">          normal! `[zt</span>
+<span class="Comment">        endfunction</span>
+<span class="Ignore">&lt;</span>
+You can use this operator as follows:
+
+        10__    Adjust to 10 lines and show the current line at the top.
+        _ip     Adjust to the same height of the paragraph under the cursor.
+
+This operator is useful to adjust the visible content in the current window.
+
+See also <span class="Ignore">|</span><span class="Identifier">operator-user-exmaples</span><span class="Ignore">|</span> for more examples and explanations.
+
+
+Requirements:
+- Vim 7.2 or later
+
+Optionals:
+- <span class="Ignore">|</span><a href="grex.html#grex"><span class="Identifier">grex</span></a><span class="Ignore">|</span> (vimscript#2773)
+- <span class="Ignore">|</span><a href="operator-replace.html#operator-replace"><span class="Identifier">operator-replace</span></a><span class="Ignore">|</span> (vimscript#2782)
+- <span class="Ignore">|</span><a href="wwwsearch.html#wwwsearch"><span class="Identifier">wwwsearch</span></a><span class="Ignore">|</span> (vimscript#2785)
+
+Latest version:
+<span class="Constant"><a href="http://github.com/kana/config/commits/vim-operator-user">http://github.com/kana/config/commits/vim-operator-user</a></span>
+
+Document in HTML format:
+<span class="Constant"><a href="http://kana.github.com/config/vim/operator-user.html">http://kana.github.com/config/vim/operator-user.html</a></span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="operator-user-interface">operator-user-interface</span><span class="Ignore">*</span>
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">FUNCTIONS                                       </span><span class="Ignore">*</span><span class="Constant" id="operator-user-functions">operator-user-functions</span><span class="Ignore">*</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator#user#define()">operator#user#define()</span><span class="Ignore">*</span>
+operator#user#define(<span class="Special">{name}</span>, <span class="Special">{function}</span>, [<span class="Special">{extra}</span> ...])
+                        Define a new operator.
+
+                        <span class="Special">{name}</span>               (string)
+                                The name of the operator to be defined.
+
+                                In Normal mode and Visual mode,
+                                <span class="Special">&lt;Plug&gt;</span>(operator-<span class="Special">{name}</span>) is mapped to a magic
+                                stuff to execute the operator.
+
+                                In Operator-pending mode,
+                                <span class="Special">&lt;Plug&gt;</span>(operator-<span class="Special">{name}</span>) is mapped to <span class="Ignore">|</span><span class="Identifier">g@</span><span class="Ignore">|</span> to
+                                operate linewise like <span class="Ignore">|</span><span class="Identifier">cc</span><span class="Ignore">|</span>, <span class="Ignore">|</span><span class="Identifier">dd</span><span class="Ignore">|</span>, etc.
+
+                        <span class="Special">{function}</span>   (string)
+                                The name of a function to be called whenever
+                                the operator is executed.
+
+                        <span class="Special">{extra}</span>              (string)
+                                An arbitrary Ex command to be executed after
+                                setting <span class="Type">'operatorfunc'</span> and before executing
+                                the operator.
+
+                                If multiple <span class="Special">{extra}</span>s are given, they are
+                                joined together into one string.  A whitespace
+                                is put in between them.  Then the string will
+                                be used instead.
+
+                                See also <span class="Ignore">|</span><a href="operator-user.html#operator-user-examples"><span class="Identifier">operator-user-examples</span></a><span class="Ignore">|</span> how to use.
+
+                                           <span class="Ignore">*</span><span class="Constant" id="operator#user#define_ex_command()">operator#user#define_ex_command()</span><span class="Ignore">*</span>
+operator#user#define_ex_command(<span class="Special">{name}</span>, <span class="Special">{ex-command}</span>)
+                        Define an operator-version of <span class="Special">{ex-command}</span>.
+
+                        <span class="Special">{name}</span>               (string)
+                                Same as the one for <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span>.
+
+                        <span class="Special">{ex-command}</span> (string)
+                                An Ex command to be executed whenever the
+                                operator is executed.  Range must not be
+                                included.
+
+                                This argument is used as follows:
+<span class="Ignore">&gt;</span>
+<span class="Comment">                                        '[,']{ex-command}</span>
+<span class="Ignore">&lt;</span>
+
+                               <span class="Ignore">*</span><span class="Constant" id="operator#user#visual_command_from_wise_name()">operator#user#visual_command_from_wise_name()</span><span class="Ignore">*</span>
+operator#user#visual_command_from_wise_name(<span class="Special">{wise-name}</span>)
+                        Return a &quot;visual command&quot; corresponding to
+                        <span class="Special">{wise-name}</span>, where a &quot;visual command&quot; is a string
+                        corresponding to one of the following commands: <span class="Ignore">|</span><span class="Identifier">v</span><span class="Ignore">|</span>,
+                        <span class="Ignore">|</span><span class="Identifier">V</span><span class="Ignore">|</span> or <span class="Ignore">|</span><span class="Identifier">&lt;C-v&gt;</span><span class="Ignore">|</span>.
+
+                        <span class="Special">{wise-name}</span>  (string)
+                                The name of a wise of <span class="Special">{motion}</span> or <span class="Special">{Visual}</span>.
+                                It can be one of the following values:
+                                &quot;char&quot;, &quot;line&quot;, &quot;block&quot;.
+
+                        See <span class="Ignore">|</span><a href="operator-user.html#operator-user-examples-D"><span class="Identifier">operator-user-examples-D</span></a><span class="Ignore">|</span> for usage.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">EXAMPLES                                        </span><span class="Ignore">*</span><span class="Constant" id="operator-user-examples">operator-user-examples</span><span class="Ignore">*</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-examples-A">operator-user-examples-A</span><span class="Ignore">*</span>
+(A) The following setting defines operator-version of <span class="Ignore">|</span><span class="Identifier">:right</span><span class="Ignore">|</span>, and map &quot;L&quot; to
+execute the operator:
+<span class="Ignore">&gt;</span>
+<span class="Comment">        map L  &lt;Plug&gt;(operator-align-right)</span>
+<span class="Comment">        call operator#user#define('align-right', 'Op_command_right')</span>
+<span class="Comment">        function! Op_command_right(motion_wiseness)</span>
+<span class="Comment">          '[,']right</span>
+<span class="Comment">        endfunction</span>
+<span class="Ignore">&lt;</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-examples-B">operator-user-examples-B</span><span class="Ignore">*</span>
+(B) The following setting defines a generic version of (A).
+    This is also an example to use <span class="Special">{extra}</span> for <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span>:
+<span class="Ignore">&gt;</span>
+<span class="Comment">        map H  &lt;Plug&gt;(operator-align-left)</span>
+<span class="Comment">        map L  &lt;Plug&gt;(operator-align-right)</span>
+<span class="Comment">        map M  &lt;Plug&gt;(operator-align-center)</span>
+
+<span class="Comment">        call operator#user#define('align-left', 'Op_command',</span>
+<span class="Comment">        \                         'call Set_op_command(&quot;left&quot;)')</span>
+<span class="Comment">        call operator#user#define('align-right', 'Op_command',</span>
+<span class="Comment">        \                         'call Set_op_command(&quot;right&quot;)')</span>
+<span class="Comment">        call operator#user#define('align-center', 'Op_command',</span>
+<span class="Comment">        \                         'call Set_op_command(&quot;center&quot;)')</span>
+
+<span class="Comment">        let s:op_command_command = ''</span>
+
+<span class="Comment">        function! Set_op_command(command)</span>
+<span class="Comment">          let s:op_command_command = a:command</span>
+<span class="Comment">        endfunction</span>
+
+<span class="Comment">        function! Op_command(motion_wiseness)</span>
+<span class="Comment">          execute &quot;'[,']&quot; s:op_command_command</span>
+<span class="Comment">        endfunction</span>
+<span class="Ignore">&lt;</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-examples-C">operator-user-examples-C</span><span class="Ignore">*</span>
+(C) With <span class="Ignore">|</span><a href="operator-user.html#operator#user#define_ex_command()"><span class="Identifier">operator#user#define_ex_command()</span></a><span class="Ignore">|</span>, the example (B) can be
+    simplified as follows:
+<span class="Ignore">&gt;</span>
+<span class="Comment">        map H  &lt;Plug&gt;(operator-align-left)</span>
+<span class="Comment">        map L  &lt;Plug&gt;(operator-align-right)</span>
+<span class="Comment">        map M  &lt;Plug&gt;(operator-align-center)</span>
+
+<span class="Comment">        call operator#user#define_ex_command('align-left', 'left')</span>
+<span class="Comment">        call operator#user#define_ex_command('align-right', 'right')</span>
+<span class="Comment">        call operator#user#define_ex_command('align-center', 'center')</span>
+<span class="Ignore">&lt;</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-examples-D">operator-user-examples-D</span><span class="Ignore">*</span>
+(D) In <span class="Type">'operatorfunc'</span>, we usually have to convert the name of the wise of
+<span class="Special">{motion}</span> into the corresponding command to start Visual mode.
+With <span class="Ignore">|</span><a href="operator-user.html#operator#user#visual_command_from_wise_name()"><span class="Identifier">operator#user#visual_command_from_wise_name()</span></a><span class="Ignore">|</span>,
+This routine can be written as follows:
+<span class="Ignore">&gt;</span>
+<span class="Comment">        call operator#user#define('void-change', 'OperatorVoidChange',</span>
+<span class="Comment">        function! OperatorVoidChange(motion_wise)</span>
+<span class="Comment">          let v = operator#user#visual_command_from_wise_name(a:motion_wise)</span>
+<span class="Comment">          execute 'normal!' '`[' . v . '`]&quot;_c' </span>
+<span class="Comment">        endfunction</span>
+<span class="Ignore">&lt;</span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="operator-user-bugs">operator-user-bugs</span><span class="Ignore">*</span>
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-bugs-A">operator-user-bugs-A</span><span class="Ignore">*</span>
+(A) <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span> defines a key mapping &quot;<span class="Special">&lt;Plug&gt;</span>(operator-<span class="Special">{name}</span>) to
+    <span class="Ignore">|</span><span class="Identifier">g@</span><span class="Ignore">|</span>&quot; in Operator-pending mode to select text linewise like <span class="Ignore">|</span><span class="Identifier">cc</span><span class="Ignore">|</span>, <span class="Ignore">|</span><span class="Identifier">dd</span><span class="Ignore">|</span>,
+    etc.  But this behavior may be harmful in the following sense:
+
+    If you define two operators &quot;A&quot; and &quot;B&quot;, you can operate the cursor line
+    with &quot;AA&quot; and &quot;BB&quot;.  But you can ALSO operate the cursor line with &quot;AB&quot;
+    and &quot;BA&quot;.  These &quot;<span class="Special">{operator-A}{operator-B}</span>&quot; key combinations are not
+    expected to work as if &quot;<span class="Special">{operator-A}{operator-A}</span>&quot;, because there is no
+    such default key binding.
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-bugs-B">operator-user-bugs-B</span><span class="Ignore">*</span>
+(B) In Visual mode, any operator defined by <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span> cannot
+    handle <span class="Ignore">|</span><span class="Identifier">count</span><span class="Ignore">|</span> correctly.  It acts as if count is not given.
+
+                                                <span class="Ignore">*</span><span class="Constant" id="operator-user-bugs-C">operator-user-bugs-C</span><span class="Ignore">*</span>
+(C) <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span> defines &quot;named&quot; key mappings
+    &quot;<span class="Special">&lt;Plug&gt;</span>(operator-<span class="Special">{name}</span>)&quot; to execute an operator, and you have to define
+    other key mappings to type to execute the operator.  <span class="Ignore">|</span><a href="operator-user.html#operator-user"><span class="Identifier">operator-user</span></a><span class="Ignore">|</span>
+    doesn't provide any official way to skip defining &quot;named&quot; key mappings.
+    It is an intentional design.
+
+    See also the following article for the details.
+    The article is also useful if you want to write your own plulgin:
+    ``Vim: Plugins should provide &quot;named&quot; key sequences to customize hotkeys,
+    not variables'' &lt;<span class="Constant"><a href="http://whileimautomaton.net/2008/09/27/02/27/35/diary">http://whileimautomaton.net/2008/09/27/02/27/35/diary</a></span>&gt;
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="operator-user-changelog">operator-user-changelog</span><span class="Ignore">*</span>
+
+0.0.6   2009-09-10T20:36:13+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.6">operator-user-changelog-0.0.6</span><span class="Ignore">*</span>
+        - Add links for scripts that use this plugin.
+          See <span class="Ignore">|</span><a href="operator-user.html#operator-user-introduction"><span class="Identifier">operator-user-introduction</span></a><span class="Ignore">|</span>.
+
+0.0.5   2009-09-08T07:28:56+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.5">operator-user-changelog-0.0.5</span><span class="Ignore">*</span>
+        - Add <span class="Ignore">|</span><a href="operator-user.html#operator#user#visual_command_from_wise_name()"><span class="Identifier">operator#user#visual_command_from_wise_name()</span></a><span class="Ignore">|</span>.
+        - Revise a bit of the document.
+
+0.0.4   2009-09-07T20:18:31+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.4">operator-user-changelog-0.0.4</span><span class="Ignore">*</span>
+        - Fix a bug that it rarely fails to select the same text as a given
+          <span class="Special">{motion}</span> in Normal mode.  It is caused by a bug in Vim; <span class="Ignore">|</span><span class="Identifier">v:count1</span><span class="Ignore">|</span>
+          may be 0 in some cases.
+        - Fix a bug that register designation (&quot;a, &quot;b, etc) doesn't work for
+          user defiend operators.
+
+0.0.3   2009-09-04T20:11:07+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.3">operator-user-changelog-0.0.3</span><span class="Ignore">*</span>
+        Incompatible change:
+        - <span class="Ignore">|</span><a href="operator-user.html#operator#user#define()"><span class="Identifier">operator#user#define()</span></a><span class="Ignore">|</span>, <span class="Ignore">|</span><a href="operator-user.html#operator#user#define_ex_command()"><span class="Identifier">operator#user#define_ex_command()</span></a><span class="Ignore">|</span>:
+          Change the meaning of the first argument:
+
+          Old versions:
+                  The argument is <span class="Special">{lhs}</span> to execute the operator to be defined.
+
+          New version:
+                  The argument is <span class="Special">{name}</span> of the operator to be defined.
+                  <span class="Special">{lhs}</span> to execute the operator is &quot;<span class="Special">&lt;Plug&gt;</span>(operator-<span class="Special">{name}</span>)&quot;.
+
+          See also <span class="Ignore">|</span><a href="operator-user.html#operator-user-bugs-C"><span class="Identifier">operator-user-bugs-C</span></a><span class="Ignore">|</span> for the details.
+
+0.0.2   2009-09-04T05:58:28+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.2">operator-user-changelog-0.0.2</span><span class="Ignore">*</span>
+        - Add <span class="Ignore">|</span><a href="operator-user.html#operator#user#define_ex_command()"><span class="Identifier">operator#user#define_ex_command()</span></a><span class="Ignore">|</span>.
+        - Add a note on a bug.  See <span class="Ignore">|</span><a href="operator-user.html#operator-user-bugs-B"><span class="Identifier">operator-user-bugs-B</span></a><span class="Ignore">|</span> for the details.
+        - Remove :DefineOperator.  It's useless as a part of this library.
+
+0.0.1   2009-07-18T04:41:22+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.1">operator-user-changelog-0.0.1</span><span class="Ignore">*</span>
+        - Rename as &quot;operator-user&quot;.  The old name &quot;myoperator&quot; is not good
+          for further works.
+
+0.0.0   2009-06-26T02:51:29+09:00              <span class="Ignore">*</span><span class="Constant" id="operator-user-changelog-0.0.0">operator-user-changelog-0.0.0</span><span class="Ignore">*</span>
+        - Initial version.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:
+</pre>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Vim: xire - Vim script into a programmable programming language</title>
+<meta name="Generator" content="Vim/7.2" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+<!--
+.Statement { color: #008080; font-weight: bold; }
+.Identifier { color: #804000; text-decoration: underline; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Comment { color: #c00000; font-weight: bold; }
+.Special { color: #c000c0; font-weight: bold; }
+pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+.Ignore { color: #ffffff; }
+.Constant { color: #0000c0; text-decoration: underline; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="Ignore">*</span><span class="Constant" id="xire.txt">xire.txt</span><span class="Ignore">*</span>      Vim script into a programmable programming language
+
+Version edfdb96
+Script ID: ****
+Copyright (C) 2009-2010 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+License: So-called MIT/X license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    &quot;Software&quot;), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="xire-contents">xire-contents</span><span class="Ignore">*</span>
+
+Introduction            <span class="Ignore">|</span><a href="xire.html#xire-introduction"><span class="Identifier">xire-introduction</span></a><span class="Ignore">|</span>
+Interface               <span class="Ignore">|</span><a href="xire.html#xire-interface"><span class="Identifier">xire-interface</span></a><span class="Ignore">|</span>
+  External Commands       <span class="Ignore">|</span><a href="xire.html#xire-external-commands"><span class="Identifier">xire-external-commands</span></a><span class="Ignore">|</span>
+Xire Script             <span class="Ignore">|</span><a href="xire.html#xire-script"><span class="Identifier">xire-script</span></a><span class="Ignore">|</span>
+Vim to Xire Mapping     <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim"><span class="Identifier">xire-mapping-to-vim</span></a><span class="Ignore">|</span>
+  Objects                  <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-objects"><span class="Identifier">xire-mapping-to-vim-objects</span></a><span class="Ignore">|</span>
+  Expressions              <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-expressions"><span class="Identifier">xire-mapping-to-vim-expressions</span></a><span class="Ignore">|</span>
+  Functions                <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-functions"><span class="Identifier">xire-mapping-to-vim-functions</span></a><span class="Ignore">|</span>
+  Ex Commands              <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-ex-commands"><span class="Identifier">xire-mapping-to-vim-ex-commands</span></a><span class="Ignore">|</span>
+Examples                <span class="Ignore">|</span><a href="xire.html#xire-examples"><span class="Identifier">xire-examples</span></a><span class="Ignore">|</span>
+Bugs                    <span class="Ignore">|</span><a href="xire.html#xire-bugs"><span class="Identifier">xire-bugs</span></a><span class="Ignore">|</span>
+Changelog               <span class="Ignore">|</span><a href="xire.html#xire-changelog"><span class="Identifier">xire-changelog</span></a><span class="Ignore">|</span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="xire-introduction">xire-introduction</span><span class="Ignore">*</span>
+
+<span class="Ignore">*</span><span class="Constant" id="xire">xire</span><span class="Ignore">*</span> is a system to write Vim script in a DSL based on Scheme.  It enables
+you to write Vim script in a programmable programming language.  Why to use
+xire?  Because:
+
+- Vim script is weak.  Vim script is just a series of Ex commands and its
+  syntax is too arbitrary as a programming language.  It's hard to write and
+  it's nearly impossible to extend.
+- There is several interfaces for other lantuages such as <span class="Ignore">|</span><span class="Identifier">if_tcl</span><span class="Ignore">|</span>, but they
+  are not portable nor seemlessly integrated into Vim.
+- And all of these problems are solved with xire.
+
+
+Requirements:
+- Vim 7.2 or later
+- Gauche 0.9 or later &lt;<span class="Constant"><a href="http://practical-scheme.net/gauche/">http://practical-scheme.net/gauche/</a></span>&gt;
+
+Latest version:
+<span class="Constant"><a href="http://github.com/kana/vim-xire">http://github.com/kana/vim-xire</a></span>
+
+Document in HTML format:
+<span class="Constant"><a href="http://kana.github.com/config/vim/xire.html">http://kana.github.com/config/vim/xire.html</a></span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="xire-interface">xire-interface</span><span class="Ignore">*</span>
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">EXTERNAL COMMANDS                               </span><span class="Ignore">*</span><span class="Constant" id="xire-external-commands">xire-external-commands</span><span class="Ignore">*</span>
+
+xirec                                           <span class="Ignore">*</span><span class="Constant" id="xirec">xirec</span><span class="Ignore">*</span>
+                        External command to compile a <span class="Ignore">|</span><a href="xire.html#xire-script"><span class="Identifier">xire-script</span></a><span class="Ignore">|</span> into a Vim
+                        script.  It reads a xire script from the standard
+                        input and it writes the resulting Vim script to the
+                        standard output.
+
+                        This command is found in the &quot;bin&quot; directory in
+                        a package of xire.
+
+                        Example:
+<span class="Ignore">&gt;</span>
+<span class="Comment">                                xirec &lt;foo.xire &gt;foo.vim</span>
+<span class="Ignore">&lt;</span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">XIRE SCRIPT                                     </span><span class="Ignore">*</span><span class="Constant" id="xire-script">xire-script</span><span class="Ignore">*</span>
+
+Xire script is a Scheme-based DSL to write Vim script.  Xire script consists
+of a seriese of xire expression.
+
+Each top-level xire xpression in xire script is compiled into a seriese of Ex
+commands in Vim script, then resulting piece of Vim script is outputted.  For
+example, &quot;(echo 20091206)&quot; is compiled into &quot;:echo 20091206&quot;.
+
+See also <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim"><span class="Identifier">xire-mapping-to-vim</span></a><span class="Ignore">|</span> for the correspondence of xire script to Vim
+script.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">VIM TO XIRE MAPPING                             </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim">xire-mapping-to-vim</span><span class="Ignore">*</span>
+
+The following are simple tables of objects, functions and Ex commands in Vim
+script with the corresponding xire expressions.  It's for the convenience of
+people familiar to Vim script.
+
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">OBJECTS                                         </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-objects">xire-mapping-to-vim-objects</span><span class="Ignore">*</span>
+
+FIXME: Add details.
+
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">EXPRESSIONS                                  </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-expressions">xire-mapping-to-vim-expressions</span><span class="Ignore">*</span>
+
+FIXME: Add details.
+
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">FUNCTIONS                                      </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-functions">xire-mapping-to-vim-functions</span><span class="Ignore">*</span>
+
+FIXME: Add details.
+
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">EX COMMANDS                                  </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-ex-commands">xire-mapping-to-vim-ex-commands</span><span class="Ignore">*</span>
+
+<span class="Ignore">|</span><span class="Identifier">:echo</span><span class="Ignore">|</span> <span class="Special">{expr}</span> ...
+        (echo <span class="Special">{expr}</span> ...)
+
+FIXME: Add details.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">EXAMPLES                                        </span><span class="Ignore">*</span><span class="Constant" id="xire-examples">xire-examples</span><span class="Ignore">*</span>
+
+FIXME: Add details.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="xire-bugs">xire-bugs</span><span class="Ignore">*</span>
+
+<span class="Statement">KNOWN ISSUES                                    </span><span class="Ignore">*</span><span class="Constant" id="xire-known-issues">xire-known-issues</span><span class="Ignore">*</span>
+
+- Currently, there is no known issue.
+
+
+<span class="Statement">PLANNED FEATURES                                </span><span class="Ignore">*</span><span class="Constant" id="xire-planned-features">xire-planned-features</span><span class="Ignore">*</span>
+
+- On-the-fly compilation.
+
+- Optimization on resulting Vim script.
+
+- Add more powerful constructs to write Vim script.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="xire-changelog">xire-changelog</span><span class="Ignore">*</span>
+
+0.0.0   2009-01-11T09:20:12+09:00               <span class="Ignore">*</span><span class="Constant" id="xire-changelog-0.0.0">xire-changelog-0.0.0</span><span class="Ignore">*</span>
+        - Initial version.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:
+</pre>
+</body>
+</html>
