@@ -1,0 +1,53 @@
+#!/bin/bash
+
+vim -u NONE -i NONE -N -e -s <<END
+  set encoding=utf-8
+
+  syntax enable
+  colorscheme ron
+  set t_Co=16
+  set background=light
+
+  edit $1
+
+  setfiletype help
+  let g:html_ignore_folding = 1
+  let g:html_use_css = 1
+  let g:use_xhtml = 1
+
+  silent! runtime syntax/2html.vim
+
+  wincmd p
+  1 substitute!\\v^\\*([^.]+)\\.txt\\*\\s*(.*)\$!<title>Vim: \\1 - \\2</title>!
+  1 yank
+  wincmd p
+  /<title>/ delete _
+  put! 0
+
+  " Convert tags to ids.
+  " FIXME: Convert ids to be HTML-valid ones.
+  % substitute!\\V<span class="Ignore">*</span><span class="Constant"\\zs\\ze>\\(\\[^<>]\\+\\)</span><span class="Ignore">*</span>! id="\\1"!g
+
+  " Convert :help links to HTML links.
+  " FIXME: Not all kinds of links are converted yet.
+  let TAGS = {}
+  for i in readfile('${1%/*}/tags')
+    let _ = split(i)
+    let _[0] = substitute(_[0], '&', '\\&amp;', 'g')
+    let _[0] = substitute(_[0], '<', '\\&lt;', 'g')
+    let _[0] = substitute(_[0], '>', '\\&gt;', 'g')
+    let _[0] = substitute(_[0], '"', '\\&quot;', 'g')
+    let TAGS[_[0]] = substitute(_[1], '\\.txt\$', '.html', '') . '#'._[0]
+  endfor
+  function! RemoveTags(s)
+    return substitute(a:s, '<[^<>]*>', '', 'g')
+  endfunction
+  % substitute!\\V<span class="Ignore">|</span>\\zs\\(\\.\\{-}\\)\\ze<span class="Ignore">|</span>!\\='<a href="' . get(TAGS, RemoveTags(submatch(1)), 'XXX') . '">' . submatch(1) . '</a>'!g
+  % substitute!\\V<a href="XXX">\\(\\.\\{-}\\)</a>!\\1!g
+
+  write !cat
+  qall!
+END
+exit 0
+
+# __END__
