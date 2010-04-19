@@ -25,10 +25,10 @@ body { font-family: monospace; color: #000000; background-color: #ffffff; }
 <pre>
 <span class="Ignore">*</span><span class="Constant" id="textobj-user.txt">textobj-user.txt</span><span class="Ignore">*</span>      Support for user-defined text objects
 
-Version 0.3.8
+Version 0.3.9
 Script ID: 2100
-Copyright (C) 2007-2008 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
-License: MIT license  {{{
+Copyright (C) 2007-2010 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+License: So-called MIT/X license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
     &quot;Software&quot;), to deal in the Software without restriction, including
@@ -75,7 +75,7 @@ Requirements:
 - Vim 7.0 or later
 
 Latest version:
-<span class="Constant"><a href="http://github.com/kana/config/commits/vim-textobj-user">http://github.com/kana/config/commits/vim-textobj-user</a></span>
+<span class="Constant"><a href="http://github.com/kana/vim-textobj-user">http://github.com/kana/vim-textobj-user</a></span>
 
 Document in HTML format:
 <span class="Constant"><a href="http://kana.github.com/config/vim/textobj-user.html">http://kana.github.com/config/vim/textobj-user.html</a></span>
@@ -339,6 +339,11 @@ textobj#user#plugin(<span class="Special">{plugin}</span>, <span class="Special"
 
 <span class="PreProc">==============================================================================</span>
 <span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-user-changelog">textobj-user-changelog</span><span class="Ignore">*</span>
+
+0.3.9   2010-04-19T22:02:03+09:00               <span class="Ignore">*</span><span class="Constant" id="textobj-user-changelog-0.3.9">textobj-user-changelog-0.3.9</span><span class="Ignore">*</span>
+        - <span class="Ignore">|</span><a href="textobj-user.html#textobj#user#plugin()"><span class="Identifier">textobj#user#plugin()</span></a><span class="Ignore">|</span>: Fix not to define key mappings in Select
+          mode if appropriate.  Now it works smoothly with plugins which
+          utilize and depend on the default behavior in Select mode.
 
 0.3.8   2009-07-18T10:02:40+09:00               <span class="Ignore">*</span><span class="Constant" id="textobj-user-changelog-0.3.8">textobj-user-changelog-0.3.8</span><span class="Ignore">*</span>
         - Fix a bug that it was not possible to select any range which starts
