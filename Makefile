@@ -50,6 +50,7 @@ fetch:
 	  git fetch origin master --tags && \
 	  git checkout master && \
 	  git reset --hard FETCH_HEAD && \
+	  git submodule update --recursive && \
 	  cd $(toplevel_dir) && \
 	  git add $$path \
 	'
