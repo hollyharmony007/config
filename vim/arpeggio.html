@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Vim: arpeggio - Mappings for simultaneously pressed keys</title>
+<title>Vim: arpeggio - Key mappings for simultaneously pressed keys</title>
 <meta name="Generator" content="Vim/7.2" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <style type="text/css">
@@ -10,8 +10,8 @@
 .Statement { color: #008080; font-weight: bold; }
 .Identifier { color: #804000; text-decoration: underline; }
 .PreProc { color: #c000c0; text-decoration: underline; }
-.Comment { color: #c00000; font-weight: bold; }
 .Special { color: #c000c0; font-weight: bold; }
+.Comment { color: #c00000; font-weight: bold; }
 .Todo { color: #000000; background-color: #00ffff; }
 .Type { color: #008000; text-decoration: underline; }
 pre { font-family: monospace; color: #000000; background-color: #ffffff; }
@@ -23,9 +23,9 @@ body { font-family: monospace; color: #000000; background-color: #ffffff; }
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="arpeggio.txt">arpeggio.txt</span><span class="Ignore">*</span>  Mappings for simultaneously pressed keys
+<span class="Ignore">*</span><span class="Constant" id="arpeggio.txt">arpeggio.txt</span><span class="Ignore">*</span>  Key mappings for simultaneously pressed keys
 
-Version 0.0.6a1-1-g58843bc
+Version 0.0.6
 Script ID: 2425
 Copyright (C) 2008-2010 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 License: So-called MIT/X license  {{{
@@ -66,17 +66,18 @@ Changelog               <span class="Ignore">|</span><a href="arpeggio.html#arpe
 <span class="PreProc">==============================================================================</span>
 <span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="arpeggio-introduction">arpeggio-introduction</span><span class="Ignore">*</span>
 
-<span class="Ignore">*</span><span class="Constant" id="arpeggio">arpeggio</span><span class="Ignore">*</span> is a Vim plugin to define another type of <span class="Ignore">|</span><span class="Identifier">key-mapping</span><span class="Ignore">|</span> called as
-<span class="Ignore">*</span><span class="Constant" id="arpeggio-key-mapping">arpeggio-key-mapping</span><span class="Ignore">*</span> which consists of 2 or more keys and it will be mapped
-to a key sequence whenever all keys are simultaneously pressed.  For example:
+<span class="Ignore">*</span><span class="Constant" id="arpeggio">arpeggio</span><span class="Ignore">*</span> is a Vim plugin to define another type of <span class="Ignore">|</span><span class="Identifier">key-mapping</span><span class="Ignore">|</span> called
+<span class="Ignore">*</span><span class="Constant" id="arpeggio-key-mapping">arpeggio-key-mapping</span><span class="Ignore">*</span> -- it consists of 2 or more keys (<span class="Special">{lhs}</span>) and it will be
+expanded to another key sequence (<span class="Special">{rhs}</span>) whenever all keys in <span class="Special">{lhs}</span> are
+simultaneously pressed.  For example:
 <span class="Ignore">&gt;</span>
-<span class="Comment">        Arpeggionoremap! jk  &lt;Esc&gt;</span>
+<span class="Comment">        Arpeggio inoremap jk  &lt;Esc&gt;</span>
 <span class="Comment">        &quot; OR</span>
-<span class="Comment">        call arpeggio#map('ic', '', 0, 'jk', '&lt;Esc&gt;')</span>
+<span class="Comment">        call arpeggio#map('i', '', 0, 'jk', '&lt;Esc&gt;')</span>
 <span class="Ignore">&lt;</span>
-With the above definition, you can input <span class="Special">&lt;Esc&gt;</span> in Insert mode and Command-line
-mode by pressing &quot;j&quot; and &quot;k&quot; simultaneously, while solely pressed &quot;j&quot; are &quot;k&quot;
-are worked the same as the default ones.
+With the above definition, you can input <span class="Special">&lt;Esc&gt;</span> in Insert mode by pressing &quot;j&quot;
+and &quot;k&quot; simultaneously, while you can move the cursor by pressing &quot;j&quot; or &quot;k&quot;
+solely.
 
 The concept of this plugin is derived from Emacs' key-chord.el (*1), but there
 are the following differences:
@@ -228,9 +229,9 @@ arpeggio#map(<span class="Special">{modes}</span>, <span class="Special">{option
                                   aborted.
 
                         <span class="Special">{remap-p}</span>
-                                Number as a boolean.  True means that rhs can
-                                be remapped, false means remapping is not
-                                allowed.
+                                Number as a boolean.  True means that <span class="Special">{rhs}</span>
+                                will be remapped, and false means that <span class="Special">{rhs}</span>
+                                will not be remapped.
 
                         <span class="Special">{lhs}</span>
                                 String.  This value must contain two or more
@@ -297,13 +298,19 @@ g:arpeggio_timeoutlens  Dictionary (default {}) <span class="Ignore">*</span><sp
   information about typing delay for each key.  So some keys may be treated as
   an arpeggio key mapping unexpectedly.
 
-- There are many bugs around the world.
-
 
 
 
 <span class="PreProc">==============================================================================</span>
 <span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="arpeggio-changelog">arpeggio-changelog</span><span class="Ignore">*</span>
+
+0.0.6   2010-04-20T12:24:42+09:00               <span class="Ignore">*</span><span class="Constant" id="arpeggio-changelog-0.0.6">arpeggio-changelog-0.0.6</span><span class="Ignore">*</span>
+        - Fix <span class="Ignore">|</span><a href="arpeggio.html#arpeggio-commands"><span class="Identifier">arpeggio-commands</span></a><span class="Ignore">|</span> to behave the same as <span class="Ignore">|</span><span class="Identifier">:map</span><span class="Ignore">|</span> commands.  In
+          other words, &quot; and keys after &quot; in <span class="Special">{rhs}</span> for <span class="Ignore">|</span><a href="arpeggio.html#arpeggio-commands"><span class="Identifier">arpeggio-commands</span></a><span class="Ignore">|</span> are
+          treated as a part of <span class="Special">{rhs}</span>.  Old versions don't behave so.
+        - Fix minor bugs.
+        - Revise the document a bit.
+        - Revise additional syntax highlighting a bit.
 
 0.0.5   2008-11-19T23:11:31+09:00               <span class="Ignore">*</span><span class="Constant" id="arpeggio-changelog-0.0.5">arpeggio-changelog-0.0.5</span><span class="Ignore">*</span>
         - Remove the assumption on <span class="Type">'timeout'</span> and <span class="Type">'ttimeout'</span>.  Old version
