@@ -10,6 +10,7 @@
 .Statement { color: #008080; font-weight: bold; }
 .Identifier { color: #804000; text-decoration: underline; }
 .PreProc { color: #c000c0; text-decoration: underline; }
+.Todo { color: #000000; background-color: #00ffff; }
 .Special { color: #c000c0; font-weight: bold; }
 .Type { color: #008000; text-decoration: underline; }
 .Comment { color: #c00000; font-weight: bold; }
@@ -24,7 +25,7 @@ body { font-family: monospace; color: #000000; background-color: #ffffff; }
 <pre>
 <span class="Ignore">*</span><span class="Constant" id="fakeclip.txt">fakeclip.txt</span><span class="Ignore">*</span>  pseudo clipboard register for non-GUI version of Vim
 
-Version 0.2.7
+Version 0.2.8
 Script ID: 2098
 Copyright (C) 2007-2010 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 License: So-called MIT/X license  {{{
@@ -62,16 +63,17 @@ Changelog               <span class="Ignore">|</span><a href="fakeclip.html#fake
 <span class="PreProc">==============================================================================</span>
 <span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="fakeclip-introduction">fakeclip-introduction</span><span class="Ignore">*</span>
 
-<span class="Ignore">*</span><span class="Constant" id="fakeclip">fakeclip</span><span class="Ignore">*</span> is a Vim plugin to provide pseudo clipboard register (<span class="Ignore">|</span><span class="Identifier">quotestar</span><span class="Ignore">|</span>
-or <span class="Ignore">|</span><span class="Identifier">quoteplus</span><span class="Ignore">|</span>) for non-GUI version of Vim on the following platforms:
+<span class="Ignore">*</span><span class="Constant" id="fakeclip">fakeclip</span><span class="Ignore">*</span> is a Vim plugin to provide a pseudo <span class="Ignore">|</span><span class="Identifier">clipboard</span><span class="Ignore">|</span> register for
+several versions of Vim without <span class="Ignore">|</span><span class="Identifier">+clipboard</span><span class="Ignore">|</span> support, especially for non-GUI
+version of Vim on the following platforms:
 
 - Cygwin
 - Mac OS X
 - X Window System (by xclip &lt;<span class="Constant"><a href="http://sourceforge.net/projects/xclip/">http://sourceforge.net/projects/xclip/</a></span>&gt;)
 
 
-fakeclip also provides a pseudo register for &quot;paste buffer&quot; if one of the
-following applications is available:
+fakeclip also provides a pseudo register to access a &quot;paste buffer&quot; if one of
+the following applications is available:
 
 - GNU screen
 - tmux
@@ -79,6 +81,9 @@ following applications is available:
 
 FAQ: If you can't copy/paste multibyte characters with the clipboard
      on Mac OS X, see <span class="Ignore">|</span><a href="fakeclip.html#fakeclip-multibyte-on-mac"><span class="Identifier">fakeclip-multibyte-on-mac</span></a><span class="Ignore">|</span>.
+
+<span class="Todo">Note</span> for Mac OS users: Though Vim supports clipboard for the console version
+since version 7.3, fakeclip is still useful to access a &quot;paste buffer&quot;.
 
 
 Requirements:
@@ -265,6 +270,9 @@ __CF_USER_TEXT_ENCODING.  It contins :-separated values:
 
 <span class="PreProc">==============================================================================</span>
 <span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="fakeclip-changelog">fakeclip-changelog</span><span class="Ignore">*</span>
+
+0.2.8   2010-08-31T20:19:51+09:00               <span class="Ignore">*</span><span class="Constant" id="fakeclip-changelog-0.2.8">fakeclip-changelog-0.2.8</span><span class="Ignore">*</span>
+        - <span class="Ignore">|</span><a href="fakeclip.html#:FakeclipDefaultKeyMappings"><span class="Identifier">:FakeclipDefaultKeyMappings</span></a><span class="Ignore">|</span>: Fix to regard a given bang.
 
 0.2.7   2010-04-02T21:27:16+09:00               <span class="Ignore">*</span><span class="Constant" id="fakeclip-changelog-0.2.7">fakeclip-changelog-0.2.7</span><span class="Ignore">*</span>
         - Fix to read/write the paste buffer of GNU screen outside a session.
