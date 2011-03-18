@@ -11,7 +11,6 @@
 .Identifier { color: #804000; text-decoration: underline; }
 .PreProc { color: #c000c0; text-decoration: underline; }
 .Comment { color: #c00000; font-weight: bold; }
-.Special { color: #c000c0; font-weight: bold; }
 pre { font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
 .Ignore { color: #ffffff; }
@@ -23,7 +22,7 @@ body { font-family: monospace; color: #000000; background-color: #ffffff; }
 <pre>
 <span class="Ignore">*</span><span class="Constant" id="xire.txt">xire.txt</span><span class="Ignore">*</span>      Vim script into a programmable programming language
 
-Version fc00e93
+Version 8a36754
 Script ID: ****
 Copyright (C) 2009-2010 kana &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 License: So-called MIT/X license  {{{
@@ -54,7 +53,6 @@ Interface               <span class="Ignore">|</span><a href="xire.html#xire-int
   External Commands       <span class="Ignore">|</span><a href="xire.html#xire-external-commands"><span class="Identifier">xire-external-commands</span></a><span class="Ignore">|</span>
 Xire Script             <span class="Ignore">|</span><a href="xire.html#xire-script"><span class="Identifier">xire-script</span></a><span class="Ignore">|</span>
 Vim to Xire Mapping     <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim"><span class="Identifier">xire-mapping-to-vim</span></a><span class="Ignore">|</span>
-  Objects                  <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-objects"><span class="Identifier">xire-mapping-to-vim-objects</span></a><span class="Ignore">|</span>
   Expressions              <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-expressions"><span class="Identifier">xire-mapping-to-vim-expressions</span></a><span class="Ignore">|</span>
   Functions                <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-functions"><span class="Identifier">xire-mapping-to-vim-functions</span></a><span class="Ignore">|</span>
   Ex Commands              <span class="Ignore">|</span><a href="xire.html#xire-mapping-to-vim-ex-commands"><span class="Identifier">xire-mapping-to-vim-ex-commands</span></a><span class="Ignore">|</span>
@@ -141,30 +139,33 @@ people familiar to Vim script.
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">OBJECTS                                         </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-objects">xire-mapping-to-vim-objects</span><span class="Ignore">*</span>
-
-FIXME: Add details.
-
-
-<span class="PreProc">------------------------------------------------------------------------------</span>
 <span class="Statement">EXPRESSIONS                                  </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-expressions">xire-mapping-to-vim-expressions</span><span class="Ignore">*</span>
 
-FIXME: Add details.
+Search bin/xirec with &quot;Built-in xire macros - Expressions&quot;.
 
+FIXME: Write more friendly documentation.
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
 <span class="Statement">FUNCTIONS                                      </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-functions">xire-mapping-to-vim-functions</span><span class="Ignore">*</span>
 
-FIXME: Add details.
+Vim script              Xire script
+<span class="PreProc">--------------------    --------------------</span>
+function(expr1, ...)    (function expr1 ...)
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
 <span class="Statement">EX COMMANDS                                  </span><span class="Ignore">*</span><span class="Constant" id="xire-mapping-to-vim-ex-commands">xire-mapping-to-vim-ex-commands</span><span class="Ignore">*</span>
 
-<span class="Ignore">|</span><span class="Identifier">:echo</span><span class="Ignore">|</span> <span class="Special">{expr}</span> ...
-        (echo <span class="Special">{expr}</span> ...)
+Search bin/xirec with
+&quot;Built-in xire macros - Control flow&quot;
+&quot;Built-in xire macros - Ex commands (except control flow)&quot;.
 
-FIXME: Add details.
+Currently, not all Ex commands are available in xire script.  If you find that
+what you want you use is not available, please write and send a patch for the
+Ex commands.  Because there are more than 500 Ex commands in Vim and it's hard
+to write their equivalents only by one person.
+
+FIXME: Write more friendly documentation.
 
 
 
