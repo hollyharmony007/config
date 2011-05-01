@@ -1,0 +1,5 @@
+#!/bin/bash
+
+perl -p -e 's/[ \t]+/ /g;s/\s+$/\n/;' "$@"
+
+# __END__
