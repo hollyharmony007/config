@@ -7,7 +7,8 @@ INSTALLATION_DIR := ./profile-link
 non_configuration_files := \
 	Makefile \
 	normalize-ini \
-	profile-link
+	profile-link \
+	version-11.10/%
 TARGETS_STATIC = $(filter-out $(non_configuration_files),$(all_files_in_repos))
 
 
