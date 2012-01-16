@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>Vim: textobj-line - Text objects for the current line</title>
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
+<style type="text/css">
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+.Todo { color: #000000; background-color: #00ffff; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
+.Constant { color: #0000c0; text-decoration: underline; }
+.Ignore { color: #ffffff; }
+
+</style>
+</head>
+<body>
+<pre>
+<span class="Ignore">*</span><span class="Constant" id="textobj-line.txt">textobj-line.txt</span><span class="Ignore">*</span>	Text objects for the current line
+
+Version 0.0.0
+Script ID: 3886
+Copyright (C) 2012 Kana Natsuno &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+License: So-called MIT/X license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    &quot;Software&quot;), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-contents">textobj-line-contents</span><span class="Ignore">*</span>
+
+Introduction            <span class="Ignore">|</span><a href="textobj-line.html#textobj-line-introduction"><span class="Identifier">textobj-line-introduction</span></a><span class="Ignore">|</span>
+Interface               <span class="Ignore">|</span><a href="textobj-line.html#textobj-line-interface"><span class="Identifier">textobj-line-interface</span></a><span class="Ignore">|</span>
+  Key Mappings            <span class="Ignore">|</span><a href="textobj-line.html#textobj-line-key-mappings"><span class="Identifier">textobj-line-key-mappings</span></a><span class="Ignore">|</span>
+Bugs                    <span class="Ignore">|</span><a href="textobj-line.html#textobj-line-bugs"><span class="Identifier">textobj-line-bugs</span></a><span class="Ignore">|</span>
+Changelog               <span class="Ignore">|</span><a href="textobj-line.html#textobj-line-changelog"><span class="Identifier">textobj-line-changelog</span></a><span class="Ignore">|</span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTRODUCTION					</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-introduction">textobj-line-introduction</span><span class="Ignore">*</span>
+
+<span class="Ignore">*</span><span class="Constant" id="textobj-line">textobj-line</span><span class="Ignore">*</span> is a Vim plugin to provide text objects to select a portion of
+the current line.  Sometimes you want to select a portion of the current line
+like &quot;^vg_&quot; or &quot;0v$h&quot;.  This plugin provides the text objects for such ranges.
+
+For example, if the current line equals to &quot;__foo_bar_baz__&quot; (where &quot;_&quot;
+represents a whitespace character), you can select &quot;foo_bar_baz&quot; (without
+leading and trailing spaces) by <span class="Ignore">|</span><a href="textobj-line.html#&lt;Plug&gt;(textobj-line-i)"><span class="Identifier">&lt;Plug&gt;(textobj-line-i)</span></a><span class="Ignore">|</span> and &quot;__foo_bar_baz__&quot;
+(with leading and trailing spaces) by <span class="Ignore">|</span><a href="textobj-line.html#&lt;Plug&gt;(textobj-line-a)"><span class="Identifier">&lt;Plug&gt;(textobj-line-a)</span></a><span class="Ignore">|</span>.
+
+
+Requirements:
+- Vim 7.2 or later
+- <span class="Ignore">|</span><a href="textobj-user.html#textobj-user"><span class="Identifier">textobj-user</span></a><span class="Ignore">|</span> 0.3.8 or later (vimscript#2100)
+
+Latest version:
+<span class="Constant"><a href="http://github.com/kana/vim-textobj-line">http://github.com/kana/vim-textobj-line</a></span>
+
+Document in HTML format:
+<span class="Constant"><a href="http://kana.github.com/config/vim/textobj-line.html">http://kana.github.com/config/vim/textobj-line.html</a></span>
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-interface">textobj-line-interface</span><span class="Ignore">*</span>
+
+<span class="PreProc">------------------------------------------------------------------------------</span>
+<span class="Statement">KEY MAPPINGS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-key-mappings">textobj-line-key-mappings</span><span class="Ignore">*</span>
+
+<span class="Statement">DEFAULT KEY MAPPINGS				</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-default-key-mappings">textobj-line-default-key-mappings</span><span class="Ignore">*</span>
+
+				    <span class="Ignore">*</span><span class="Constant" id="g:textobj_line_no_default_key_mappings">g:textobj_line_no_default_key_mappings</span><span class="Ignore">*</span>
+					    <span class="Ignore">*</span><span class="Constant" id=":TextobjLineDefaultKeyMappings">:TextobjLineDefaultKeyMappings</span><span class="Ignore">*</span>
+This plugin defines the following key mappings by default.  If you don't want
+the default key mappings, define <span class="Ignore">|</span><a href="textobj-line.html#g:textobj_line_no_default_key_mappings"><span class="Identifier">g:textobj_line_no_default_key_mappings</span></a><span class="Ignore">|</span>
+before this plugin is loaded (e.g. in your <span class="Ignore">|</span><span class="Identifier">vimrc</span><span class="Ignore">|</span>).  You can also use
+<span class="Ignore">|</span><a href="textobj-line.html#:TextobjLineDefaultKeyMappings"><span class="Identifier">:TextobjLineDefaultKeyMappings</span></a><span class="Ignore">|</span> to redefine these key mappings.  This command
+doesn't override existing <span class="Special">{lhs}</span>s unless [!] is given.
+
+Modes	<span class="Special">{lhs}</span>		<span class="Special">{rhs}</span>
+<span class="PreProc">------------------------------------------------</span>
+vo	al		<span class="Ignore">|</span><a href="textobj-line.html#&lt;Plug&gt;(textobj-line-a)"><span class="Identifier">&lt;Plug&gt;(textobj-line-a)</span></a><span class="Ignore">|</span>
+vo	il		<span class="Ignore">|</span><a href="textobj-line.html#&lt;Plug&gt;(textobj-line-i)"><span class="Identifier">&lt;Plug&gt;(textobj-line-i)</span></a><span class="Ignore">|</span>
+
+
+<span class="Statement">NAMED KEY MAPPINGS				</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-named-key-mappings">textobj-line-named-key-mappings</span><span class="Ignore">*</span>
+
+<span class="Special">&lt;Plug&gt;</span>(textobj-line-a)				<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-line-a)">&lt;Plug&gt;(textobj-line-a)</span><span class="Ignore">*</span>
+			Select all characters in the current line without the
+			end of line character.  You can select the same
+			portion with the following command: 0v$h
+
+			<span class="Todo">Note</span> that this text object selects nothing if
+
+			* the current line does not contain any character,
+
+			because there is no text to select in the current line.
+
+<span class="Special">&lt;Plug&gt;</span>(textobj-line-i)				<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-line-i)">&lt;Plug&gt;(textobj-line-i)</span><span class="Ignore">*</span>
+			Select all characters in the current line without
+			leading spaces, trailing spaces and the end of line
+			character.  You can select the same portion with the
+			following command: ^vg_
+
+			<span class="Todo">Note</span> that this text object selects nothing if
+
+			* the current line does not contain any character, or
+			* the current line consists only of space characters,
+
+			because there is no text to select in the current line.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-bugs">textobj-line-bugs</span><span class="Ignore">*</span>
+
+- Currently there is no known issue.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="textobj-line-changelog">textobj-line-changelog</span><span class="Ignore">*</span>
+
+0.0.0	2012-01-16T18:48:10+09:00		<span class="Ignore">*</span><span class="Constant" id="textobj-line-changelog-0.0.0">textobj-line-changelog-0.0.0</span><span class="Ignore">*</span>
+	- Initial version.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:
+</pre>
+</body>
+</html>

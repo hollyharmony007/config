@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: metarw - a framework to read/write a fake:path</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Statement { color: #008080; font-weight: bold; }
-.Identifier { color: #804000; text-decoration: underline; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Special { color: #c000c0; font-weight: bold; }
-.Type { color: #008000; text-decoration: underline; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Type { color: #008000; text-decoration: underline; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="metarw.txt">metarw.txt</span><span class="Ignore">*</span>    a framework to read/write a fake:path
+<span class="Ignore">*</span><span class="Constant" id="metarw.txt">metarw.txt</span><span class="Ignore">*</span>	a framework to read/write a fake:path
 
 Version 0.0.4
 Script ID: 2335
@@ -47,24 +47,24 @@ License: MIT license  {{{
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="metarw-contents">metarw-contents</span><span class="Ignore">*</span>
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="metarw-contents">metarw-contents</span><span class="Ignore">*</span>
 
-Introduction            <span class="Ignore">|</span><a href="metarw.html#metarw-introduction"><span class="Identifier">metarw-introduction</span></a><span class="Ignore">|</span>
-Interface               <span class="Ignore">|</span><a href="metarw.html#metarw-interface"><span class="Identifier">metarw-interface</span></a><span class="Ignore">|</span>
-  Commands                <span class="Ignore">|</span><a href="metarw.html#metarw-commands"><span class="Identifier">metarw-commands</span></a><span class="Ignore">|</span>
-  Functions               <span class="Ignore">|</span><a href="metarw.html#metarw-functions"><span class="Identifier">metarw-functions</span></a><span class="Ignore">|</span>
-  Key Mappings            <span class="Ignore">|</span><a href="metarw.html#metarw-key-mappings"><span class="Identifier">metarw-key-mappings</span></a><span class="Ignore">|</span>
-  Content Browswer        <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>
-Schemes                 <span class="Ignore">|</span><a href="metarw.html#metarw-schemes"><span class="Identifier">metarw-schemes</span></a><span class="Ignore">|</span>
-Terms                   <span class="Ignore">|</span><a href="metarw.html#metarw-terms"><span class="Identifier">metarw-terms</span></a><span class="Ignore">|</span>
-Bugs                    <span class="Ignore">|</span><a href="metarw.html#metarw-bugs"><span class="Identifier">metarw-bugs</span></a><span class="Ignore">|</span>
-Changelog               <span class="Ignore">|</span><a href="metarw.html#metarw-changelog"><span class="Identifier">metarw-changelog</span></a><span class="Ignore">|</span>
+Introduction		<span class="Ignore">|</span><a href="metarw.html#metarw-introduction"><span class="Identifier">metarw-introduction</span></a><span class="Ignore">|</span>
+Interface		<span class="Ignore">|</span><a href="metarw.html#metarw-interface"><span class="Identifier">metarw-interface</span></a><span class="Ignore">|</span>
+  Commands		  <span class="Ignore">|</span><a href="metarw.html#metarw-commands"><span class="Identifier">metarw-commands</span></a><span class="Ignore">|</span>
+  Functions		  <span class="Ignore">|</span><a href="metarw.html#metarw-functions"><span class="Identifier">metarw-functions</span></a><span class="Ignore">|</span>
+  Key Mappings		  <span class="Ignore">|</span><a href="metarw.html#metarw-key-mappings"><span class="Identifier">metarw-key-mappings</span></a><span class="Ignore">|</span>
+  Content Browswer	  <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>
+Schemes			<span class="Ignore">|</span><a href="metarw.html#metarw-schemes"><span class="Identifier">metarw-schemes</span></a><span class="Ignore">|</span>
+Terms			<span class="Ignore">|</span><a href="metarw.html#metarw-terms"><span class="Identifier">metarw-terms</span></a><span class="Ignore">|</span>
+Bugs			<span class="Ignore">|</span><a href="metarw.html#metarw-bugs"><span class="Identifier">metarw-bugs</span></a><span class="Ignore">|</span>
+Changelog		<span class="Ignore">|</span><a href="metarw.html#metarw-changelog"><span class="Identifier">metarw-changelog</span></a><span class="Ignore">|</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="metarw-introduction">metarw-introduction</span><span class="Ignore">*</span>
+<span class="Statement">INTRODUCTION					</span><span class="Ignore">*</span><span class="Constant" id="metarw-introduction">metarw-introduction</span><span class="Ignore">*</span>
 
 <span class="Ignore">*</span><span class="Constant" id="metarw">metarw</span><span class="Ignore">*</span> is a Vim plugin to provide a framework to read/write a file-like
 argument of which name is written in URI-like notation such as
@@ -92,73 +92,73 @@ Document in HTML format:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="metarw-interface">metarw-interface</span><span class="Ignore">*</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="metarw-interface">metarw-interface</span><span class="Ignore">*</span>
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">COMMANDS                                        </span><span class="Ignore">*</span><span class="Constant" id="metarw-commands">metarw-commands</span><span class="Ignore">*</span>
+<span class="Statement">COMMANDS					</span><span class="Ignore">*</span><span class="Constant" id="metarw-commands">metarw-commands</span><span class="Ignore">*</span>
 
-:Edit[!] <span class="Special">[++opt]</span> <span class="Special">[+cmd]</span> [<span class="Special">{file}</span>]                <span class="Ignore">*</span><span class="Constant" id=":Edit">:Edit</span><span class="Ignore">*</span>
-:Read <span class="Special">[++opt]</span> [<span class="Special">{file}</span>]                          <span class="Ignore">*</span><span class="Constant" id=":Read">:Read</span><span class="Ignore">*</span>
-:Source [<span class="Special">{file}</span>]                                <span class="Ignore">*</span><span class="Constant" id=":Source">:Source</span><span class="Ignore">*</span>
-:<span class="Special">[range]</span>Write[!] [<span class="Special">{file}</span>]                       <span class="Ignore">*</span><span class="Constant" id=":Write">:Write</span><span class="Ignore">*</span>
-                        Same as <span class="Ignore">|</span><span class="Identifier">:edit</span><span class="Ignore">|</span> and other commands, but the completion
-                        of their arguments is extended to also complete
-                        fakepathes.
+:Edit[!] <span class="Special">[++opt]</span> <span class="Special">[+cmd]</span> [<span class="Special">{file}</span>]		<span class="Ignore">*</span><span class="Constant" id=":Edit">:Edit</span><span class="Ignore">*</span>
+:Read <span class="Special">[++opt]</span> [<span class="Special">{file}</span>]				<span class="Ignore">*</span><span class="Constant" id=":Read">:Read</span><span class="Ignore">*</span>
+:Source [<span class="Special">{file}</span>]				<span class="Ignore">*</span><span class="Constant" id=":Source">:Source</span><span class="Ignore">*</span>
+:<span class="Special">[range]</span>Write[!] [<span class="Special">{file}</span>]			<span class="Ignore">*</span><span class="Constant" id=":Write">:Write</span><span class="Ignore">*</span>
+			Same as <span class="Ignore">|</span><span class="Identifier">:edit</span><span class="Ignore">|</span> and other commands, but the completion
+			of their arguments is extended to also complete
+			fakepathes.
 
-                        These wrapper commands are not defined automatically.
-                        If you want them, you have to call
-                        <span class="Ignore">|</span><a href="metarw.html#metarw#define_wrapper_commands()"><span class="Identifier">metarw#define_wrapper_commands()</span></a><span class="Ignore">|</span>.
+			These wrapper commands are not defined automatically.
+			If you want them, you have to call
+			<span class="Ignore">|</span><a href="metarw.html#metarw#define_wrapper_commands()"><span class="Identifier">metarw#define_wrapper_commands()</span></a><span class="Ignore">|</span>.
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">FUNCTIONS                                       </span><span class="Ignore">*</span><span class="Constant" id="metarw-functions">metarw-functions</span><span class="Ignore">*</span>
+<span class="Statement">FUNCTIONS					</span><span class="Ignore">*</span><span class="Constant" id="metarw-functions">metarw-functions</span><span class="Ignore">*</span>
 
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#complete()">metarw#complete()</span><span class="Ignore">*</span>
+						<span class="Ignore">*</span><span class="Constant" id="metarw#complete()">metarw#complete()</span><span class="Ignore">*</span>
 metarw#complete(<span class="Special">{arglead}</span>, <span class="Special">{cmdline}</span>, <span class="Special">{cursorpos}</span>)
-                        Function for <span class="Ignore">|</span><span class="Identifier">:command-complete</span><span class="Ignore">|</span> to complete also
-                        fakepathes.  Use as follows:
-                        &quot;-complete=customlist,metarw#complete&quot;.
+			Function for <span class="Ignore">|</span><span class="Identifier">:command-complete</span><span class="Ignore">|</span> to complete also
+			fakepathes.  Use as follows:
+			&quot;-complete=customlist,metarw#complete&quot;.
 
-                                            <span class="Ignore">*</span><span class="Constant" id="metarw#define_wrapper_commands()">metarw#define_wrapper_commands()</span><span class="Ignore">*</span>
+					    <span class="Ignore">*</span><span class="Constant" id="metarw#define_wrapper_commands()">metarw#define_wrapper_commands()</span><span class="Ignore">*</span>
 metarw#define_wrapper_commands(<span class="Special">{override-p}</span>)
-                        Define wrapper commands (see <span class="Ignore">|</span><a href="metarw.html#metarw-commands"><span class="Identifier">metarw-commands</span></a><span class="Ignore">|</span>.)
-                        Override existent commands if <span class="Special">{override-p}</span> is true.
+			Define wrapper commands (see <span class="Ignore">|</span><a href="metarw.html#metarw-commands"><span class="Identifier">metarw-commands</span></a><span class="Ignore">|</span>.)
+			Override existent commands if <span class="Special">{override-p}</span> is true.
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">KEY MAPPINGS                                    </span><span class="Ignore">*</span><span class="Constant" id="metarw-key-mappings">metarw-key-mappings</span><span class="Ignore">*</span>
+<span class="Statement">KEY MAPPINGS					</span><span class="Ignore">*</span><span class="Constant" id="metarw-key-mappings">metarw-key-mappings</span><span class="Ignore">*</span>
 
 The following key mappings are available for <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>.  All of
 them are buffer-local and defined in Normal mode:
 
 
-<span class="Special">&lt;Plug&gt;</span>(metarw-open-here)                        <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-here)">&lt;Plug&gt;(metarw-open-here)</span><span class="Ignore">*</span>
-<span class="Special">&lt;Plug&gt;</span>(metarw-open-split)                       <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-split)">&lt;Plug&gt;(metarw-open-split)</span><span class="Ignore">*</span>
-<span class="Special">&lt;Plug&gt;</span>(metarw-open-vsplit)                      <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-vsplit)">&lt;Plug&gt;(metarw-open-vsplit)</span><span class="Ignore">*</span>
-                        Open the item under the cursor in the current window
-                        or newly created window.  If there is no item under
-                        the cursor, nothing will be happened.
+<span class="Special">&lt;Plug&gt;</span>(metarw-open-here)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-here)">&lt;Plug&gt;(metarw-open-here)</span><span class="Ignore">*</span>
+<span class="Special">&lt;Plug&gt;</span>(metarw-open-split)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-split)">&lt;Plug&gt;(metarw-open-split)</span><span class="Ignore">*</span>
+<span class="Special">&lt;Plug&gt;</span>(metarw-open-vsplit)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-open-vsplit)">&lt;Plug&gt;(metarw-open-vsplit)</span><span class="Ignore">*</span>
+			Open the item under the cursor in the current window
+			or newly created window.  If there is no item under
+			the cursor, nothing will be happened.
 
-<span class="Special">&lt;Plug&gt;</span>(metarw-go-to-parent)                     <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-go-to-parent)">&lt;Plug&gt;(metarw-go-to-parent)</span><span class="Ignore">*</span>
-                        Open the &quot;parent&quot; item in the current window.  The
-                        &quot;parent&quot; item is always the first item listed in
-                        a content browser.
+<span class="Special">&lt;Plug&gt;</span>(metarw-go-to-parent)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(metarw-go-to-parent)">&lt;Plug&gt;(metarw-go-to-parent)</span><span class="Ignore">*</span>
+			Open the &quot;parent&quot; item in the current window.  The
+			&quot;parent&quot; item is always the first item listed in
+			a content browser.
 
-                                            <span class="Ignore">*</span><span class="Constant" id="g:metarw_no_default_key_mappings">g:metarw_no_default_key_mappings</span><span class="Ignore">*</span>
+					    <span class="Ignore">*</span><span class="Constant" id="g:metarw_no_default_key_mappings">g:metarw_no_default_key_mappings</span><span class="Ignore">*</span>
 The following key mappings will be also available unless
 g:metarw_no_default_key_mappings is defined:
 
-<span class="Special">{lhs}</span>                   <span class="Special">{rhs}</span>
-<span class="PreProc">--------                -----------------------------</span>
-<span class="Special">&lt;Return&gt;</span>                <span class="Special">&lt;Plug&gt;</span>(metarw-open-here)
-<span class="Special">&lt;C-m&gt;</span>                   <span class="Special">&lt;Plug&gt;</span>(metarw-open-here)
-o                       <span class="Special">&lt;Plug&gt;</span>(metarw-open-split)
-v                       <span class="Special">&lt;Plug&gt;</span>(metarw-open-vsplit)
--                       <span class="Special">&lt;Plug&gt;</span>(metarw-go-to-parent)
+<span class="Special">{lhs}</span>			<span class="Special">{rhs}</span>
+<span class="PreProc">--------		-----------------------------</span>
+<span class="Special">&lt;Return&gt;</span>		<span class="Special">&lt;Plug&gt;</span>(metarw-open-here)
+<span class="Special">&lt;C-m&gt;</span>			<span class="Special">&lt;Plug&gt;</span>(metarw-open-here)
+o			<span class="Special">&lt;Plug&gt;</span>(metarw-open-split)
+v			<span class="Special">&lt;Plug&gt;</span>(metarw-open-vsplit)
+-			<span class="Special">&lt;Plug&gt;</span>(metarw-go-to-parent)
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">CONTENT BROWSER                                 </span><span class="Ignore">*</span><span class="Constant" id="metarw-content-browser">metarw-content-browser</span><span class="Ignore">*</span>
+<span class="Statement">CONTENT BROWSER					</span><span class="Ignore">*</span><span class="Constant" id="metarw-content-browser">metarw-content-browser</span><span class="Ignore">*</span>
 
 If some sorts of fakepaths (which depend on their schemes) are given to
 <span class="Ignore">|</span><span class="Identifier">:edit</span><span class="Ignore">|</span>, <span class="Ignore">|</span><span class="Identifier">:new</span><span class="Ignore">|</span> or other commands, metarw will set up the newly created buffer
@@ -172,7 +172,7 @@ customization.
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">SCHEMES                                         </span><span class="Ignore">*</span><span class="Constant" id="metarw-schemes">metarw-schemes</span><span class="Ignore">*</span>
+<span class="Statement">SCHEMES						</span><span class="Ignore">*</span><span class="Constant" id="metarw-schemes">metarw-schemes</span><span class="Ignore">*</span>
 
 To add your own scheme, write a Vim script and put it under a directory named
 &quot;autoload/metarw/&quot; in <span class="Type">'runtimepath'</span>.  Such script is called as a scheme
@@ -183,131 +183,131 @@ Scheme scripts must implements the following functions.  Most of works such as
 hooking read/write events are automatically treated by metarw, so you don't
 have to think about troublesome stuffs.
 
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#complete()">metarw#{scheme}#complete()</span><span class="Ignore">*</span>
+						<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#complete()">metarw#{scheme}#complete()</span><span class="Ignore">*</span>
 metarw#<span class="Special">{scheme}</span>#complete(<span class="Special">{arglead}</span>, <span class="Special">{cmdline}</span>, <span class="Special">{cursorpos}</span>)
-                        Complete the names of fakepaths.  This function is
-                        like the one which is described at
-                        <span class="Ignore">|</span><span class="Identifier">:command-completion-customlist</span><span class="Ignore">|</span>, but there are the
-                        following differences:
+			Complete the names of fakepaths.  This function is
+			like the one which is described at
+			<span class="Ignore">|</span><span class="Identifier">:command-completion-customlist</span><span class="Ignore">|</span>, but there are the
+			following differences:
 
-                        - <span class="Special">{arglead}</span> is split into &quot;head&quot; part and &quot;tail&quot; part.
-                          They must fulfill the following equation:
-                                <span class="Special">{arglead}</span> ==# head_part . tail_part
-                        - This function must complete candidates which are
-                          conteind in a stuff represented by the &quot;head&quot; part.
-                        - Return value is a list with 3 items.
-                          The first item is a list of candidates.
-                          The second item is the &quot;head&quot; part.
-                          The third item is the &quot;tail&quot; part.
-                        - Returned candidates will be filtered by callers.  So
-                          don't filter in this function.
+			- <span class="Special">{arglead}</span> is split into &quot;head&quot; part and &quot;tail&quot; part.
+			  They must fulfill the following equation:
+				<span class="Special">{arglead}</span> ==# head_part . tail_part
+			- This function must complete candidates which are
+			  conteind in a stuff represented by the &quot;head&quot; part.
+			- Return value is a list with 3 items.
+			  The first item is a list of candidates.
+			  The second item is the &quot;head&quot; part.
+			  The third item is the &quot;tail&quot; part.
+			- Returned candidates will be filtered by callers.  So
+			  don't filter in this function.
 
-                        For example, when completing file names and <span class="Special">{arglead}</span>
-                        is &quot;foo/b&quot;:
-                        - The &quot;head&quot; part is &quot;foo/&quot;.
-                        - The &quot;tail&quot; part is &quot;b&quot;.
-                        - This function must complete files in the directory
-                          &quot;foo/&quot;.
+			For example, when completing file names and <span class="Special">{arglead}</span>
+			is &quot;foo/b&quot;:
+			- The &quot;head&quot; part is &quot;foo/&quot;.
+			- The &quot;tail&quot; part is &quot;b&quot;.
+			- This function must complete files in the directory
+			  &quot;foo/&quot;.
 
-metarw#<span class="Special">{scheme}</span>#read(<span class="Special">{fakepath}</span>)                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()">metarw#{scheme}#read()</span><span class="Ignore">*</span>
-                        Read the content of <span class="Special">{fakepath}</span>.
+metarw#<span class="Special">{scheme}</span>#read(<span class="Special">{fakepath}</span>)		<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()">metarw#{scheme}#read()</span><span class="Ignore">*</span>
+			Read the content of <span class="Special">{fakepath}</span>.
 
-                        This function must return a list with two items.  The
-                        first item indicates the type of a return value, and
-                        the second item is an additional information for the
-                        return value.  The meanings of return values are as
-                        follows:
+			This function must return a list with two items.  The
+			first item indicates the type of a return value, and
+			the second item is an additional information for the
+			return value.  The meanings of return values are as
+			follows:
 
-                        <span class="PreProc">First item   Second item</span><span class="Ignore"> ~</span>
-                        <span class="PreProc">----------   ----------------------------------</span><span class="Ignore"> ~</span>
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-error">metarw#{scheme}#read()-error</span><span class="Ignore">*</span>
-                        &quot;error&quot;         A string which represents an error
-                                        message.
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-read">metarw#{scheme}#read()-read</span><span class="Ignore">*</span>
-                        &quot;read&quot;          A string which will be given to
-                                        <span class="Ignore">|</span><span class="Identifier">:read</span><span class="Ignore">|</span> to read the content of
-                                        <span class="Special">{fakepath}</span>.
-                                               <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-browse">metarw#{scheme}#read()-browse</span><span class="Ignore">*</span>
-                        &quot;browse&quot;        A list to set up
-                                        <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>.
+			<span class="PreProc">First item	Second item</span><span class="Ignore"> ~</span>
+			<span class="PreProc">----------	----------------------------------</span><span class="Ignore"> ~</span>
+						<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-error">metarw#{scheme}#read()-error</span><span class="Ignore">*</span>
+			&quot;error&quot;		A string which represents an error
+					message.
+						<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-read">metarw#{scheme}#read()-read</span><span class="Ignore">*</span>
+			&quot;read&quot;		A string which will be given to
+					<span class="Ignore">|</span><span class="Identifier">:read</span><span class="Ignore">|</span> to read the content of
+					<span class="Special">{fakepath}</span>.
+					       <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#read()-browse">metarw#{scheme}#read()-browse</span><span class="Ignore">*</span>
+			&quot;browse&quot;	A list to set up
+					<span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>.
 
-                        If the second item of return value is a list, each
-                        item in the list is a dictionary which represents an
-                        item in <span class="Special">{fakepath}</span>.  The meaning of key-value pairs
-                        are:
+			If the second item of return value is a list, each
+			item in the list is a dictionary which represents an
+			item in <span class="Special">{fakepath}</span>.  The meaning of key-value pairs
+			are:
 
-                        &quot;label&quot; (string) /required/
-                                Displayed as the label of the item.
+			&quot;label&quot; (string) /required/
+				Displayed as the label of the item.
 
-                        &quot;fakepath&quot; (string) /required/
-                                Used to open an item by
-                                <span class="Ignore">|</span><a href="metarw.html#&lt;Plug&gt;(metarw-open-here)"><span class="Identifier">&lt;Plug&gt;(metarw-open-here)</span></a><span class="Ignore">|</span> or other ways.
+			&quot;fakepath&quot; (string) /required/
+				Used to open an item by
+				<span class="Ignore">|</span><a href="metarw.html#&lt;Plug&gt;(metarw-open-here)"><span class="Identifier">&lt;Plug&gt;(metarw-open-here)</span></a><span class="Ignore">|</span> or other ways.
 
-                        And, the first item should be the &quot;parent&quot; of
-                        <span class="Special">{fakepath}</span>.  This item is used for
-                        <span class="Ignore">|</span><a href="metarw.html#&lt;Plug&gt;(metarw-go-to-parent)"><span class="Identifier">&lt;Plug&gt;(metarw-go-to-parent)</span></a><span class="Ignore">|</span>.
+			And, the first item should be the &quot;parent&quot; of
+			<span class="Special">{fakepath}</span>.  This item is used for
+			<span class="Ignore">|</span><a href="metarw.html#&lt;Plug&gt;(metarw-go-to-parent)"><span class="Identifier">&lt;Plug&gt;(metarw-go-to-parent)</span></a><span class="Ignore">|</span>.
 
-                        See also <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>.
+			See also <span class="Ignore">|</span><a href="metarw.html#metarw-content-browser"><span class="Identifier">metarw-content-browser</span></a><span class="Ignore">|</span>.
 
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()">metarw#{scheme}#write()</span><span class="Ignore">*</span>
+						<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()">metarw#{scheme}#write()</span><span class="Ignore">*</span>
 metarw#<span class="Special">{scheme}</span>#write(<span class="Special">{fakepath}</span>, <span class="Special">{line1}</span>, <span class="Special">{line2}</span>, <span class="Special">{append-p}</span>)
-                        Write or append the content of the current buffer from
-                        <span class="Special">{line1}</span> to <span class="Special">{line2}</span> into <span class="Special">{fakepath}</span>.  If <span class="Special">{append-p}</span> is
-                        true, does appending instead of writing.
+			Write or append the content of the current buffer from
+			<span class="Special">{line1}</span> to <span class="Special">{line2}</span> into <span class="Special">{fakepath}</span>.  If <span class="Special">{append-p}</span> is
+			true, does appending instead of writing.
 
-                        This function must return a list with one or more
-                        items like <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#read()"><span class="Identifier">metarw#{scheme}#read()</span></a><span class="Ignore">|</span>, but the meanings
-                        of return values are as follows:
+			This function must return a list with one or more
+			items like <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#read()"><span class="Identifier">metarw#{scheme}#read()</span></a><span class="Ignore">|</span>, but the meanings
+			of return values are as follows:
 
-                        <span class="PreProc">First item   Rest items</span><span class="Ignore"> ~</span>
-                        <span class="PreProc">----------   -----------------------------------</span><span class="Ignore"> ~</span>
-                                               <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-error">metarw#{scheme}#write()-error</span><span class="Ignore">*</span>
-                        &quot;error&quot;         The second item must be a string which
-                                        represents an error message.
-                                               <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-write">metarw#{scheme}#write()-write</span><span class="Ignore">*</span>
-                        &quot;write&quot;         The second item must be a string which
-                                        will be given to <span class="Ignore">|</span><span class="Identifier">:write</span><span class="Ignore">|</span> to write the
-                                        content of <span class="Special">{fakepath}</span>.
+			<span class="PreProc">First item	Rest items</span><span class="Ignore"> ~</span>
+			<span class="PreProc">----------	-----------------------------------</span><span class="Ignore"> ~</span>
+					       <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-error">metarw#{scheme}#write()-error</span><span class="Ignore">*</span>
+			&quot;error&quot;		The second item must be a string which
+					represents an error message.
+					       <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-write">metarw#{scheme}#write()-write</span><span class="Ignore">*</span>
+			&quot;write&quot;		The second item must be a string which
+					will be given to <span class="Ignore">|</span><span class="Identifier">:write</span><span class="Ignore">|</span> to write the
+					content of <span class="Special">{fakepath}</span>.
 
-                                        The third item is optional; if it is
-                                        given, it must be a string which is
-                                        a Vim script and it will be
-                                        <span class="Ignore">|</span><span class="Identifier">:execute</span><span class="Ignore">|</span>d after writing.
-                                                <span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-done">metarw#{scheme}#write()-done</span><span class="Ignore">*</span>
-                        &quot;done&quot;          The rest items are just ignored.  This
-                                        type means that writing is already
-                                        done by <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>.
+					The third item is optional; if it is
+					given, it must be a string which is
+					a Vim script and it will be
+					<span class="Ignore">|</span><span class="Identifier">:execute</span><span class="Ignore">|</span>d after writing.
+						<span class="Ignore">*</span><span class="Constant" id="metarw#{scheme}#write()-done">metarw#{scheme}#write()-done</span><span class="Ignore">*</span>
+			&quot;done&quot;		The rest items are just ignored.  This
+					type means that writing is already
+					done by <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>.
 
-                        Don't reset <span class="Type">'modified'</span> in this function.  It will be
-                        automatically treated by metarw.
-
-
-
-
-<span class="PreProc">==============================================================================</span>
-<span class="Statement">TERMS                                           </span><span class="Ignore">*</span><span class="Constant" id="metarw-terms">metarw-terms</span><span class="Ignore">*</span>
-
-Fakepath                                        <span class="Ignore">*</span><span class="Constant" id="metarw-fakepath">metarw-fakepath</span><span class="Ignore">*</span>
-        Fakepathes are file-like arguments written in URI-like notation.
-        For example, &quot;git:master:src/ui.c&quot; is a fakepath.
-
-Scheme                                          <span class="Ignore">*</span><span class="Constant" id="metarw-scheme">metarw-scheme</span><span class="Ignore">*</span>
-        Scheme is the substring before the first &quot;:&quot; in the name of
-        a fakepath.  For example, the scheme of &quot;git:master:src/ui.c&quot; is
-        &quot;git&quot;.
-
-        The name of a scheme must consist of 2 or more characters, and it
-        should consist of only lowercase, English alphabets.
-
-Scheme script                                   <span class="Ignore">*</span><span class="Constant" id="metarw-scheme-script">metarw-scheme-script</span><span class="Ignore">*</span>
-        Support script to enable to read/write fakepathes.  One scheme script
-        supports just one scheme.
+			Don't reset <span class="Type">'modified'</span> in this function.  It will be
+			automatically treated by metarw.
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="metarw-bugs">metarw-bugs</span><span class="Ignore">*</span>
+<span class="Statement">TERMS						</span><span class="Ignore">*</span><span class="Constant" id="metarw-terms">metarw-terms</span><span class="Ignore">*</span>
+
+Fakepath					<span class="Ignore">*</span><span class="Constant" id="metarw-fakepath">metarw-fakepath</span><span class="Ignore">*</span>
+	Fakepathes are file-like arguments written in URI-like notation.
+	For example, &quot;git:master:src/ui.c&quot; is a fakepath.
+
+Scheme						<span class="Ignore">*</span><span class="Constant" id="metarw-scheme">metarw-scheme</span><span class="Ignore">*</span>
+	Scheme is the substring before the first &quot;:&quot; in the name of
+	a fakepath.  For example, the scheme of &quot;git:master:src/ui.c&quot; is
+	&quot;git&quot;.
+
+	The name of a scheme must consist of 2 or more characters, and it
+	should consist of only lowercase, English alphabets.
+
+Scheme script					<span class="Ignore">*</span><span class="Constant" id="metarw-scheme-script">metarw-scheme-script</span><span class="Ignore">*</span>
+	Support script to enable to read/write fakepathes.  One scheme script
+	supports just one scheme.
+
+
+
+
+<span class="PreProc">==============================================================================</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="metarw-bugs">metarw-bugs</span><span class="Ignore">*</span>
 
 - <span class="Special">{range}</span> for &quot;:read <span class="Special">{fakepath}</span>&quot; is ignored and it will always be treated as
   the current line.  Because there is no way to get <span class="Special">{range}</span> in <span class="Ignore">|</span><span class="Identifier">FileReadCmd</span><span class="Ignore">|</span>.
@@ -318,36 +318,36 @@ Scheme script                                   <span class="Ignore">*</span><sp
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="metarw-changelog">metarw-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="metarw-changelog">metarw-changelog</span><span class="Ignore">*</span>
 
-0.0.4   2009-05-23T14:51:43+09:00               <span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.4">metarw-changelog-0.0.4</span><span class="Ignore">*</span>
-        - Refine the document.
-        - <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>:
-          - Fix a bug that some kind of errors are not handled properly.
-          - Add a way to execute a script after writing.  See
-            <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()-write"><span class="Identifier">metarw#{scheme}#write()-write</span></a><span class="Ignore">|</span> for the details.
+0.0.4	2009-05-23T14:51:43+09:00		<span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.4">metarw-changelog-0.0.4</span><span class="Ignore">*</span>
+	- Refine the document.
+	- <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>:
+	  - Fix a bug that some kind of errors are not handled properly.
+	  - Add a way to execute a script after writing.  See
+	    <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()-write"><span class="Identifier">metarw#{scheme}#write()-write</span></a><span class="Ignore">|</span> for the details.
 
-0.0.3   2008-08-30T03:11:55+09:00               <span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.3">metarw-changelog-0.0.3</span><span class="Ignore">*</span>
-        - <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>:
-          - Fix wrong implementation.
-          - Add new type of return value &quot;done&quot;.
+0.0.3	2008-08-30T03:11:55+09:00		<span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.3">metarw-changelog-0.0.3</span><span class="Ignore">*</span>
+	- <span class="Ignore">|</span><a href="metarw.html#metarw#{scheme}#write()"><span class="Identifier">metarw#{scheme}#write()</span></a><span class="Ignore">|</span>:
+	  - Fix wrong implementation.
+	  - Add new type of return value &quot;done&quot;.
 
-0.0.2   2008-08-10T23:43:48+09:00               <span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.2">metarw-changelog-0.0.2</span><span class="Ignore">*</span>
-        - Separate <span class="Ignore">|</span><span class="Identifier">ku-metarw</span><span class="Ignore">|</span> as a independent package.
+0.0.2	2008-08-10T23:43:48+09:00		<span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.2">metarw-changelog-0.0.2</span><span class="Ignore">*</span>
+	- Separate <span class="Ignore">|</span><span class="Identifier">ku-metarw</span><span class="Ignore">|</span> as a independent package.
 
-0.0.1   2008-08-10T12:19:52+09:00               <span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.1">metarw-changelog-0.0.1</span><span class="Ignore">*</span>
-        - Add a special source of ku (see <span class="Ignore">|</span><span class="Identifier">metarw-schemes-as-ku-sources</span><span class="Ignore">|</span>).
-        - Fix autocommands not to hook fakepaths with any schene name which
-          consists of less than 2 characters.  Old definitions incorrectly
-          recognized paths with a drive letter in Microsoft Windows
-          environment as a fakepath.  (thanks to id:thinca)
-        - Add 2 rules on the name of a scheme (see <span class="Ignore">|</span><a href="metarw.html#metarw-scheme"><span class="Identifier">metarw-scheme</span></a><span class="Ignore">|</span>).
-        - Fix plugin/metarw.vim to be properly reloadable.
-        - Fix requirements - metarw uses <span class="Ignore">|</span><span class="Identifier">fnameescape()</span><span class="Ignore">|</span> which is added since
-          Vim 7.1.299.  (thanks to id:thinca)
+0.0.1	2008-08-10T12:19:52+09:00		<span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.1">metarw-changelog-0.0.1</span><span class="Ignore">*</span>
+	- Add a special source of ku (see <span class="Ignore">|</span><span class="Identifier">metarw-schemes-as-ku-sources</span><span class="Ignore">|</span>).
+	- Fix autocommands not to hook fakepaths with any schene name which
+	  consists of less than 2 characters.  Old definitions incorrectly
+	  recognized paths with a drive letter in Microsoft Windows
+	  environment as a fakepath.  (thanks to id:thinca)
+	- Add 2 rules on the name of a scheme (see <span class="Ignore">|</span><a href="metarw.html#metarw-scheme"><span class="Identifier">metarw-scheme</span></a><span class="Ignore">|</span>).
+	- Fix plugin/metarw.vim to be properly reloadable.
+	- Fix requirements - metarw uses <span class="Ignore">|</span><span class="Identifier">fnameescape()</span><span class="Ignore">|</span> which is added since
+	  Vim 7.1.299.  (thanks to id:thinca)
 
-0.0.0   2008-07-11T16:51:59+09:00               <span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.0">metarw-changelog-0.0.0</span><span class="Ignore">*</span>
-        - Initial version.
+0.0.0	2008-07-11T16:51:59+09:00		<span class="Ignore">*</span><span class="Constant" id="metarw-changelog-0.0.0">metarw-changelog-0.0.0</span><span class="Ignore">*</span>
+	- Initial version.
 
 
 

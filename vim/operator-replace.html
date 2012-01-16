@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: operator-replace - Operator to replace text with register content</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Statement { color: #008080; font-weight: bold; }
-.Identifier { color: #804000; text-decoration: underline; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Special { color: #c000c0; font-weight: bold; }
-.Comment { color: #c00000; font-weight: bold; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Comment { color: #c00000; font-weight: bold; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="operator-replace.txt">operator-replace.txt</span><span class="Ignore">*</span>  Operator to replace text with register content
+<span class="Ignore">*</span><span class="Constant" id="operator-replace.txt">operator-replace.txt</span><span class="Ignore">*</span>	Operator to replace text with register content
 
 Version 0.0.1
 Script ID: 2782
@@ -47,7 +47,7 @@ License: MIT license  {{{
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-contents">operator-replace-contents</span><span class="Ignore">*</span>
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="operator-replace-contents">operator-replace-contents</span><span class="Ignore">*</span>
 
 Introduction            <span class="Ignore">|</span><a href="operator-replace.html#operator-replace-introduction"><span class="Identifier">operator-replace-introduction</span></a><span class="Ignore">|</span>
 Interface               <span class="Ignore">|</span><a href="operator-replace.html#operator-replace-interface"><span class="Identifier">operator-replace-interface</span></a><span class="Ignore">|</span>
@@ -60,7 +60,7 @@ Changelog               <span class="Ignore">|</span><a href="operator-replace.h
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTRODUCTION                                   </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-introduction">operator-replace-introduction</span><span class="Ignore">*</span>
+<span class="Statement">INTRODUCTION				       </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-introduction">operator-replace-introduction</span><span class="Ignore">*</span>
 
 <span class="Ignore">*</span><span class="Constant" id="operator-replace">operator-replace</span><span class="Ignore">*</span> is a Vim plugin to provide an operator to replace
 a specified text with register content.  This is shortcut for several types of
@@ -81,53 +81,53 @@ Document in HTML format:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-interface">operator-replace-interface</span><span class="Ignore">*</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="operator-replace-interface">operator-replace-interface</span><span class="Ignore">*</span>
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">KEY MAPPINGS                                   </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-key-mappings">operator-replace-key-mappings</span><span class="Ignore">*</span>
+<span class="Statement">KEY MAPPINGS				       </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-key-mappings">operator-replace-key-mappings</span><span class="Ignore">*</span>
 
-[&quot;x]<span class="Special">&lt;Plug&gt;</span>(operator-replace)<span class="Special">{motion}</span>            <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(operator-replace)">&lt;Plug&gt;(operator-replace)</span><span class="Ignore">*</span>
-                        Replace text that <span class="Special">{motion}</span> moves over with register x.
+[&quot;x]<span class="Special">&lt;Plug&gt;</span>(operator-replace)<span class="Special">{motion}</span>		<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(operator-replace)">&lt;Plug&gt;(operator-replace)</span><span class="Ignore">*</span>
+			Replace text that <span class="Special">{motion}</span> moves over with register x.
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">EXAMPLES                                        </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-examples">operator-replace-examples</span><span class="Ignore">*</span>
+<span class="Statement">EXAMPLES					</span><span class="Ignore">*</span><span class="Constant" id="operator-replace-examples">operator-replace-examples</span><span class="Ignore">*</span>
 
 (A) At first, you have to map arbitrary key sequences to
     <span class="Ignore">|</span><a href="operator-replace.html#&lt;Plug&gt;(operator-replace)"><span class="Identifier">&lt;Plug&gt;(operator-replace)</span></a><span class="Ignore">|</span> like the following:
 <span class="Ignore">&gt;</span>
-<span class="Comment">        map _  &lt;Plug&gt;(operator-replace)</span>
+<span class="Comment">	map _  &lt;Plug&gt;(operator-replace)</span>
 <span class="Ignore">&lt;</span>
 
 (B) Suppose that you edit a buffer with the following content:
     (note that &quot;^&quot; indicates the cursor position)
 <span class="Ignore">&gt;</span>
-<span class="Comment">        (herb oil pepper) salt water</span>
-<span class="Comment">        ^</span>
+<span class="Comment">	(herb oil pepper) salt water</span>
+<span class="Comment">	^</span>
 <span class="Ignore">&lt;</span>
     If you yank &quot;sugar&quot; into register x, now you can replace any text with the
     yanked text.  For example:
 
-        To replace the 2nd word:
+	To replace the 2nd word:
 <span class="Ignore">&gt;</span>
-<span class="Comment">                w&quot;x_iw</span>
+<span class="Comment">		w&quot;x_iw</span>
 <span class="Ignore">&lt;</span>
-        To replace inside the parens:
+	To replace inside the parens:
 <span class="Ignore">&gt;</span>
-<span class="Comment">                &quot;x_ib</span>
+<span class="Comment">		&quot;x_ib</span>
 <span class="Ignore">&lt;</span>
-        To replace the cursor line:
+	To replace the cursor line:
 <span class="Ignore">&gt;</span>
-<span class="Comment">                &quot;x__</span>
+<span class="Comment">		&quot;x__</span>
 <span class="Ignore">&lt;</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-bugs">operator-replace-bugs</span><span class="Ignore">*</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="operator-replace-bugs">operator-replace-bugs</span><span class="Ignore">*</span>
 
 - Combinations of wises of <span class="Special">{motion}</span> and register content are not considered
   well, especially with blockwise ones.
@@ -138,14 +138,14 @@ Document in HTML format:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog">operator-replace-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog">operator-replace-changelog</span><span class="Ignore">*</span>
 
-0.0.1   2009-09-16T07:59:40+09:00           <span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog-0.0.1">operator-replace-changelog-0.0.1</span><span class="Ignore">*</span>
-        - Fix edge case bugs.  Now replaacing at the end of line or the end of
-          buffer work as you expect.
+0.0.1	2009-09-16T07:59:40+09:00	    <span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog-0.0.1">operator-replace-changelog-0.0.1</span><span class="Ignore">*</span>
+	- Fix edge case bugs.  Now replaacing at the end of line or the end of
+	  buffer work as you expect.
 
-0.0.0   2009-09-06T10:13:20+09:00           <span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog-0.0.0">operator-replace-changelog-0.0.0</span><span class="Ignore">*</span>
-        - Initial version.
+0.0.0	2009-09-06T10:13:20+09:00	    <span class="Ignore">*</span><span class="Constant" id="operator-replace-changelog-0.0.0">operator-replace-changelog-0.0.0</span><span class="Ignore">*</span>
+	- Initial version.
 
 
 

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: textobj-function-c - Text objects for functions in C language</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Statement { color: #008080; font-weight: bold; }
-.Identifier { color: #804000; text-decoration: underline; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Comment { color: #c00000; font-weight: bold; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Comment { color: #c00000; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="textobj-function-c.txt">textobj-function-c.txt</span><span class="Ignore">*</span>        Text objects for functions in C language
+<span class="Ignore">*</span><span class="Constant" id="textobj-function-c.txt">textobj-function-c.txt</span><span class="Ignore">*</span>	Text objects for functions in C language
 
 Version 0.1.0
 Script ID: ****
@@ -46,18 +46,18 @@ License: MIT license  {{{
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-contents">textobj-function-c-contents</span><span class="Ignore">*</span>
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-contents">textobj-function-c-contents</span><span class="Ignore">*</span>
 
-Introduction            <span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-introduction"><span class="Identifier">textobj-function-c-introduction</span></a><span class="Ignore">|</span>
-Interface               <span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-interface"><span class="Identifier">textobj-function-c-interface</span></a><span class="Ignore">|</span>
-Bugs                    <span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-bugs"><span class="Identifier">textobj-function-c-bugs</span></a><span class="Ignore">|</span>
-Changelog               <span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-changelog"><span class="Identifier">textobj-function-c-changelog</span></a><span class="Ignore">|</span>
+Introduction		<span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-introduction"><span class="Identifier">textobj-function-c-introduction</span></a><span class="Ignore">|</span>
+Interface		<span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-interface"><span class="Identifier">textobj-function-c-interface</span></a><span class="Ignore">|</span>
+Bugs			<span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-bugs"><span class="Identifier">textobj-function-c-bugs</span></a><span class="Ignore">|</span>
+Changelog		<span class="Ignore">|</span><a href="textobj-function-c.html#textobj-function-c-changelog"><span class="Identifier">textobj-function-c-changelog</span></a><span class="Ignore">|</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTRODUCTION                                 </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-introduction">textobj-function-c-introduction</span><span class="Ignore">*</span>
+<span class="Statement">INTRODUCTION				     </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-introduction">textobj-function-c-introduction</span><span class="Ignore">*</span>
 
 <span class="Ignore">*</span><span class="Constant" id="textobj-function-c">textobj-function-c</span><span class="Ignore">*</span> is a Vim additional filetype plugin to provide text
 objects for functions in C language.  This is a support script for
@@ -79,7 +79,7 @@ Document in HTML format:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-interface">textobj-function-c-interface</span><span class="Ignore">*</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-interface">textobj-function-c-interface</span><span class="Ignore">*</span>
 
 See <span class="Ignore">|</span><a href="textobj-function.html#textobj-function"><span class="Identifier">textobj-function</span></a><span class="Ignore">|</span> for the details.  Because this plugin just enhances the
 power of textobj-function and does not provide any user interface.
@@ -88,15 +88,15 @@ power of textobj-function and does not provide any user interface.
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-bugs">textobj-function-c-bugs</span><span class="Ignore">*</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-bugs">textobj-function-c-bugs</span><span class="Ignore">*</span>
 
 - Assumption: C functions must be written in the following style:
 <span class="Ignore">&gt;</span>
-<span class="Comment">        return-type</span>
-<span class="Comment">        function-name(arg1, arg2, ..., argN)</span>
-<span class="Comment">        {</span>
-<span class="Comment">                ...</span>
-<span class="Comment">        }</span>
+<span class="Comment">	return-type</span>
+<span class="Comment">	function-name(arg1, arg2, ..., argN)</span>
+<span class="Comment">	{</span>
+<span class="Comment">		...</span>
+<span class="Comment">	}</span>
 <span class="Ignore">&lt;</span>
   - return-type must be written in one line.
   - function-name must be followed by &quot;(&quot;.
@@ -111,13 +111,13 @@ power of textobj-function and does not provide any user interface.
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog">textobj-function-c-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog">textobj-function-c-changelog</span><span class="Ignore">*</span>
 
-0.1.0   2009-04-25T20:09:50+09:00         <span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog-0.1.0">textobj-function-c-changelog-0.1.0</span><span class="Ignore">*</span>
-        - Rewrite for new version of <span class="Ignore">|</span><a href="textobj-function.html#textobj-function"><span class="Identifier">textobj-function</span></a><span class="Ignore">|</span>.
+0.1.0	2009-04-25T20:09:50+09:00	  <span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog-0.1.0">textobj-function-c-changelog-0.1.0</span><span class="Ignore">*</span>
+	- Rewrite for new version of <span class="Ignore">|</span><a href="textobj-function.html#textobj-function"><span class="Identifier">textobj-function</span></a><span class="Ignore">|</span>.
 
-0.0     2007-XX-XX                          <span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog-0.0">textobj-function-c-changelog-0.0</span><span class="Ignore">*</span>
-        - Initial version.
+0.0	2007-XX-XX			    <span class="Ignore">*</span><span class="Constant" id="textobj-function-c-changelog-0.0">textobj-function-c-changelog-0.0</span><span class="Ignore">*</span>
+	- Initial version.
 
 
 

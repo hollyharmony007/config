@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: surround - Plugin for deleting, changing, and adding "surroundings"</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Identifier { color: #804000; text-decoration: underline; }
-.Todo { color: #000000; background-color: #00ffff; }
-.Type { color: #008000; text-decoration: underline; }
-.Statement { color: #008080; font-weight: bold; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Special { color: #c000c0; font-weight: bold; }
-.Comment { color: #c00000; font-weight: bold; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Comment { color: #c00000; font-weight: bold; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
+.Type { color: #008000; text-decoration: underline; }
+.Todo { color: #000000; background-color: #00ffff; }
+.Identifier { color: #804000; text-decoration: underline; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
@@ -237,7 +237,7 @@ that allow you to jump to such markings.
 <span class="Ignore">&gt;</span>
 <span class="Comment">  let g:surround_insert_tail = &quot;&lt;++&gt;&quot;</span>
 <span class="Ignore">&lt;</span>
-                                        <span class="Ignore">*</span><span class="Constant" id="surrounding-customizing-difference">surrounding-customizing-difference</span><span class="Ignore">*</span>
+					<span class="Ignore">*</span><span class="Constant" id="surrounding-customizing-difference">surrounding-customizing-difference</span><span class="Ignore">*</span>
 <span class="PreProc">DIFFERENCE FROM THE ORIGINAL VERSION</span><span class="Ignore"> ~</span>
 
 The original way - g:surround_{char2nr(key)} - is no longer supported.  Please
@@ -245,31 +245,31 @@ use <span class="Ignore">|</span><a href="surround.html#SurroundRegister"><span 
 user-defined surrounding objects.
 
 Tips:
-        <span class="PreProc">g:surround_{char2nr(key)} = template</span><span class="Ignore">   ~</span>
-        <span class="PreProc">b:surround_{char2nr(key)} = template</span><span class="Ignore">   ~</span>
+	<span class="PreProc">g:surround_{char2nr(key)} = template</span><span class="Ignore">	~</span>
+	<span class="PreProc">b:surround_{char2nr(key)} = template</span><span class="Ignore">	~</span>
 and
-        <span class="PreProc">call SurroundRegister('g', key, template)</span><span class="Ignore">      ~</span>
-        <span class="PreProc">call SurroundRegister('b', key, template)</span><span class="Ignore">      ~</span>
+	<span class="PreProc">call SurroundRegister('g', key, template)</span><span class="Ignore">	~</span>
+	<span class="PreProc">call SurroundRegister('b', key, template)</span><span class="Ignore">	~</span>
 have same meaning.
 
-SurroundRegister(<span class="Special">{type}</span>, <span class="Special">{key}</span>, <span class="Special">{template}</span>)             <span class="Ignore">*</span><span class="Constant" id="SurroundRegister">SurroundRegister</span><span class="Ignore">*</span>
-        Register new user-defined surrounding object.
+SurroundRegister(<span class="Special">{type}</span>, <span class="Special">{key}</span>, <span class="Special">{template}</span>)		<span class="Ignore">*</span><span class="Constant" id="SurroundRegister">SurroundRegister</span><span class="Ignore">*</span>
+	Register new user-defined surrounding object.
 
-        <span class="Special">{type}</span> ('b' or 'g')
-                The scope of this object.
-                'b' means buffer-local and
-                'g' means global.
+	<span class="Special">{type}</span>	('b' or 'g')
+		The scope of this object.
+		'b' means buffer-local and
+		'g' means global.
 
-        <span class="Special">{key}</span>  (string with 1 or more characters)
-                Key stroke for this object.
+	<span class="Special">{key}</span>	(string with 1 or more characters)
+		Key stroke for this object.
 
-        <span class="Special">{template}</span>
-                Template for this object.
-                See <span class="Ignore">|</span><span class="Identifier">surrounding-customizing</span><span class="Ignore">|</span> for the detail.
+	<span class="Special">{template}</span>
+		Template for this object.
+		See <span class="Ignore">|</span><span class="Identifier">surrounding-customizing</span><span class="Ignore">|</span> for the detail.
 
-SurroundUnregister(<span class="Special">{type}</span>, <span class="Special">{key}</span>)                       <span class="Ignore">*</span><span class="Constant" id="SurroundUnregister">SurroundUnregister</span><span class="Ignore">*</span>
-        Unregister user-defined surrounding object corresponding to
-        the givin <span class="Special">{key}</span>.
+SurroundUnregister(<span class="Special">{type}</span>, <span class="Special">{key}</span>)			<span class="Ignore">*</span><span class="Constant" id="SurroundUnregister">SurroundUnregister</span><span class="Ignore">*</span>
+	Unregister user-defined surrounding object corresponding to
+	the givin <span class="Special">{key}</span>.
 
 <span class="Statement">ISSUES                                          </span><span class="Ignore">*</span><span class="Constant" id="surround-issues">surround-issues</span><span class="Ignore">*</span>
 
@@ -286,72 +286,72 @@ should this be the default?
 
 
 
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="surround-changelog">surround-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="surround-changelog">surround-changelog</span><span class="Ignore">*</span>
 
-2008-12-30T19:03:49+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2008-12-30T19:03:49+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Fix <span class="Special">&lt;Plug&gt;</span>Ysurround and others to be repeatable with a &quot;repeat&quot;
-          plugin which is one of the followings:
-          <span class="Constant"><a href="http://github.com/kana/config/commits/vim-repeat">http://github.com/kana/config/commits/vim-repeat</a></span>
-          <span class="Constant"><a href="http://www.vim.org/scripts/script.php?script_id=2136">http://www.vim.org/scripts/script.php?script_id=2136</a></span>
+	- Fix <span class="Special">&lt;Plug&gt;</span>Ysurround and others to be repeatable with a &quot;repeat&quot;
+	  plugin which is one of the followings:
+	  <span class="Constant"><a href="http://github.com/kana/config/commits/vim-repeat">http://github.com/kana/config/commits/vim-repeat</a></span>
+	  <span class="Constant"><a href="http://www.vim.org/scripts/script.php?script_id=2136">http://www.vim.org/scripts/script.php?script_id=2136</a></span>
 
-2008-11-09T03:26:23+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2008-11-09T03:26:23+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Fix the bug that <span class="Ignore">|</span><a href="surround.html#surround-mappings"><span class="Identifier">surround-mappings</span></a><span class="Ignore">|</span> does not work if they are not
-          typed by user, for example, remapped from other key mappings.
+	- Fix the bug that <span class="Ignore">|</span><a href="surround.html#surround-mappings"><span class="Identifier">surround-mappings</span></a><span class="Ignore">|</span> does not work if they are not
+	  typed by user, for example, remapped from other key mappings.
 
-2008-05-18T20:40:06+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2008-05-18T20:40:06+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Fix the bug that user-defined Command-line mode mappings &quot;%&quot; and &quot;&gt;&quot;
-          are overriden by this plugin.
+	- Fix the bug that user-defined Command-line mode mappings &quot;%&quot; and &quot;&gt;&quot;
+	  are overriden by this plugin.
 
-2008-05-18T20:32:11+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2008-05-18T20:32:11+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Merge the changes between version 1.33 and version 1.34.
+	- Merge the changes between version 1.33 and version 1.34.
 
-2008-02-09T23:23:55+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2008-02-09T23:23:55+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Merge the changes between version 1.26 and version 1.33.
+	- Merge the changes between version 1.26 and version 1.33.
 
-2007-10-01T22:46:14+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2007-10-01T22:46:14+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - INCOMPATIBLE CHANGE: the way of <span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span> is changed.
-          See <span class="Ignore">|</span><a href="surround.html#surrounding-customizing-difference"><span class="Identifier">surrounding-customizing-difference</span></a><span class="Ignore">|</span> for the detail.
+	- INCOMPATIBLE CHANGE: the way of <span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span> is changed.
+	  See <span class="Ignore">|</span><a href="surround.html#surrounding-customizing-difference"><span class="Identifier">surrounding-customizing-difference</span></a><span class="Ignore">|</span> for the detail.
 
-        - Support n-stroke key for user-defined surrounding objects.
+	- Support n-stroke key for user-defined surrounding objects.
 
-2007-10-01T03:43:51+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2007-10-01T03:43:51+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Support dynamic template for <span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span>.
-          Now templates of user-defined surrounding objects may be functions
-          or funcrefs which must return a template.
+	- Support dynamic template for <span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span>.
+	  Now templates of user-defined surrounding objects may be functions
+	  or funcrefs which must return a template.
 
-          For example, the following setting provides two-stroke keys &quot;xa&quot; and
-          &quot;xb&quot; for some templates.
+	  For example, the following setting provides two-stroke keys &quot;xa&quot; and
+	  &quot;xb&quot; for some templates.
 <span class="Ignore">&gt;</span>
-<span class="Comment">          function g:surround_{char2nr('x')}()</span>
-<span class="Comment">            let c = nr2char(getchar())</span>
-<span class="Comment">            if c ==# 'b'</span>
-<span class="Comment">              return &quot;(((\r)))&quot;</span>
-<span class="Comment">            elseif c ==# 'B'</span>
-<span class="Comment">              return &quot;{{{\r}}}&quot;</span>
-<span class="Comment">            else</span>
-<span class="Comment">              return ''</span>
-<span class="Comment">            endif</span>
-<span class="Comment">          endfunction</span>
+<span class="Comment">	  function g:surround_{char2nr('x')}()</span>
+<span class="Comment">	    let c = nr2char(getchar())</span>
+<span class="Comment">	    if c ==# 'b'</span>
+<span class="Comment">	      return &quot;(((\r)))&quot;</span>
+<span class="Comment">	    elseif c ==# 'B'</span>
+<span class="Comment">	      return &quot;{{{\r}}}&quot;</span>
+<span class="Comment">	    else</span>
+<span class="Comment">	      return ''</span>
+<span class="Comment">	    endif</span>
+<span class="Comment">	  endfunction</span>
 <span class="Ignore">&lt;</span>
-2007-10-01T00:25:20+09:00       kana    &lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
+2007-10-01T00:25:20+09:00	kana	&lt;<span class="Constant"><a href="http://whileimautomaton.net/">http://whileimautomaton.net/</a></span>&gt;
 
-        - Support user-defined surrounding objects (<span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span>) as
-          <span class="Ignore">|</span><a href="surround.html#surround-targets"><span class="Identifier">surround-targets</span></a><span class="Ignore">|</span>.  The original version (1.26) does not support
-          this feature.
+	- Support user-defined surrounding objects (<span class="Ignore">|</span><a href="surround.html#surround-customizing"><span class="Identifier">surround-customizing</span></a><span class="Ignore">|</span>) as
+	  <span class="Ignore">|</span><a href="surround.html#surround-targets"><span class="Identifier">surround-targets</span></a><span class="Ignore">|</span>.  The original version (1.26) does not support
+	  this feature.
 
-          BUGS: <span class="Special">[count]</span> is not supported yet.
-
-
+	  BUGS: <span class="Special">[count]</span> is not supported yet.
 
 
- vim:tw=78:ts=8:ft=help:norl:
+
+
+ vim&#0058;tw=78:ts=8:ft=help:norl:
 </pre>
 </body>
 </html>

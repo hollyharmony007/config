@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: textobj-syntax - Text objects for syntax highlighted items</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Statement { color: #008080; font-weight: bold; }
-.Identifier { color: #804000; text-decoration: underline; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Comment { color: #c00000; font-weight: bold; }
-.Special { color: #c000c0; font-weight: bold; }
-.Todo { color: #000000; background-color: #00ffff; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Todo { color: #000000; background-color: #00ffff; }
+.Special { color: #c000c0; font-weight: bold; }
+.Comment { color: #c00000; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="textobj-syntax.txt">textobj-syntax.txt</span><span class="Ignore">*</span>    Text objects for syntax highlighted items
+<span class="Ignore">*</span><span class="Constant" id="textobj-syntax.txt">textobj-syntax.txt</span><span class="Ignore">*</span>	Text objects for syntax highlighted items
 
 Version 0.0.0
 Script ID: 2716
@@ -48,23 +48,23 @@ License: MIT license  {{{
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-contents">textobj-syntax-contents</span><span class="Ignore">*</span>
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-contents">textobj-syntax-contents</span><span class="Ignore">*</span>
 
-Introduction            <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-introduction"><span class="Identifier">textobj-syntax-introduction</span></a><span class="Ignore">|</span>
-Interface               <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-interface"><span class="Identifier">textobj-syntax-interface</span></a><span class="Ignore">|</span>
-  Commands                <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-commands"><span class="Identifier">textobj-syntax-commands</span></a><span class="Ignore">|</span>
-  Functions               <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-functions"><span class="Identifier">textobj-syntax-functions</span></a><span class="Ignore">|</span>
-  Key Mappings            <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-key-mappings"><span class="Identifier">textobj-syntax-key-mappings</span></a><span class="Ignore">|</span>
-Customization           <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-customization"><span class="Identifier">textobj-syntax-customization</span></a><span class="Ignore">|</span>
-Examples                <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-examples"><span class="Identifier">textobj-syntax-examples</span></a><span class="Ignore">|</span>
-Bugs                    <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-bugs"><span class="Identifier">textobj-syntax-bugs</span></a><span class="Ignore">|</span>
-Changelog               <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-changelog"><span class="Identifier">textobj-syntax-changelog</span></a><span class="Ignore">|</span>
+Introduction		<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-introduction"><span class="Identifier">textobj-syntax-introduction</span></a><span class="Ignore">|</span>
+Interface		<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-interface"><span class="Identifier">textobj-syntax-interface</span></a><span class="Ignore">|</span>
+  Commands		  <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-commands"><span class="Identifier">textobj-syntax-commands</span></a><span class="Ignore">|</span>
+  Functions		  <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-functions"><span class="Identifier">textobj-syntax-functions</span></a><span class="Ignore">|</span>
+  Key Mappings		  <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-key-mappings"><span class="Identifier">textobj-syntax-key-mappings</span></a><span class="Ignore">|</span>
+Customization		<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-customization"><span class="Identifier">textobj-syntax-customization</span></a><span class="Ignore">|</span>
+Examples		<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-examples"><span class="Identifier">textobj-syntax-examples</span></a><span class="Ignore">|</span>
+Bugs			<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-bugs"><span class="Identifier">textobj-syntax-bugs</span></a><span class="Ignore">|</span>
+Changelog		<span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-changelog"><span class="Identifier">textobj-syntax-changelog</span></a><span class="Ignore">|</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-introduction">textobj-syntax-introduction</span><span class="Ignore">*</span>
+<span class="Statement">INTRODUCTION					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-introduction">textobj-syntax-introduction</span><span class="Ignore">*</span>
 
 <span class="Ignore">*</span><span class="Constant" id="textobj-syntax">textobj-syntax</span><span class="Ignore">*</span> is a Vim plugin to provide <span class="Ignore">|</span><span class="Identifier">text-objects</span><span class="Ignore">|</span> to select one or
 more items which are syntax highlighted.
@@ -72,8 +72,8 @@ more items which are syntax highlighted.
 For example, if you edit the following line in your vimrc, characters which
 are underlined with &quot;~&quot; are syntax highlighted.
 <span class="Ignore">&gt;</span>
-<span class="Comment">        nnoremap &lt;silent&gt; ql  :&lt;C-u&gt;clist&lt;Return&gt;</span>
-<span class="Comment">        ~~~~~~~~ ~~~~~~~~      ~~~~~     ~~~~~~~~</span>
+<span class="Comment">	nnoremap &lt;silent&gt; ql  :&lt;C-u&gt;clist&lt;Return&gt;</span>
+<span class="Comment">	~~~~~~~~ ~~~~~~~~      ~~~~~     ~~~~~~~~</span>
 <span class="Ignore">&lt;</span>
 So <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-a)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-a)</span></a><span class="Ignore">|</span> and <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span> (which are mapped
 from  <span class="Ignore">|</span><a href="textobj-syntax.html#ay"><span class="Identifier">ay</span></a><span class="Ignore">|</span> and <span class="Ignore">|</span><a href="textobj-syntax.html#iy"><span class="Identifier">iy</span></a><span class="Ignore">|</span> by default) select one of the underlined items if the
@@ -94,74 +94,74 @@ Document in HTML format:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-interface">textobj-syntax-interface</span><span class="Ignore">*</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-interface">textobj-syntax-interface</span><span class="Ignore">*</span>
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">COMMANDS                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-commands">textobj-syntax-commands</span><span class="Ignore">*</span>
+<span class="Statement">COMMANDS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-commands">textobj-syntax-commands</span><span class="Ignore">*</span>
 
-:TextobjSyntaxDefaultKeyMappings[!]         <span class="Ignore">*</span><span class="Constant" id=":TextobjSyntaxDefaultKeyMappings">:TextobjSyntaxDefaultKeyMappings</span><span class="Ignore">*</span>
-                        Define <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-default-key-mappings"><span class="Identifier">textobj-syntax-default-key-mappings</span></a><span class="Ignore">|</span>.
-                        If [!] is given, existing <span class="Special">{lhs}</span>s are overriden.
+:TextobjSyntaxDefaultKeyMappings[!]	    <span class="Ignore">*</span><span class="Constant" id=":TextobjSyntaxDefaultKeyMappings">:TextobjSyntaxDefaultKeyMappings</span><span class="Ignore">*</span>
+			Define <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-default-key-mappings"><span class="Identifier">textobj-syntax-default-key-mappings</span></a><span class="Ignore">|</span>.
+			If [!] is given, existing <span class="Special">{lhs}</span>s are overriden.
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">FUNCTIONS                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-functions">textobj-syntax-functions</span><span class="Ignore">*</span>
+<span class="Statement">FUNCTIONS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-functions">textobj-syntax-functions</span><span class="Ignore">*</span>
 
 Any function is not available.
 
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">KEY MAPPINGS                                    </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-key-mappings">textobj-syntax-key-mappings</span><span class="Ignore">*</span>
+<span class="Statement">KEY MAPPINGS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-key-mappings">textobj-syntax-key-mappings</span><span class="Ignore">*</span>
 
-<span class="Statement">NAMED KEY MAPPINGS                         </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-named-key-mappings">textobj-syntax-named-key-mappings</span><span class="Ignore">*</span>
+<span class="Statement">NAMED KEY MAPPINGS			   </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-named-key-mappings">textobj-syntax-named-key-mappings</span><span class="Ignore">*</span>
 
-<span class="Special">&lt;Plug&gt;</span>(textobj-syntax-a)                        <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-syntax-a)">&lt;Plug&gt;(textobj-syntax-a)</span><span class="Ignore">*</span>
-                        Like <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>, but this text object
-                        selects also leading or trailing white spaces.
+<span class="Special">&lt;Plug&gt;</span>(textobj-syntax-a)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-syntax-a)">&lt;Plug&gt;(textobj-syntax-a)</span><span class="Ignore">*</span>
+			Like <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>, but this text object
+			selects also leading or trailing white spaces.
 
-                        <span class="Todo">Note</span> that currently this acts the same as
-                        <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>.
+			<span class="Todo">Note</span> that currently this acts the same as
+			<span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>.
 
-<span class="Special">&lt;Plug&gt;</span>(textobj-syntax-i)                        <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-syntax-i)">&lt;Plug&gt;(textobj-syntax-i)</span><span class="Ignore">*</span>
-                        Select the syntax highlighted item under the cursor.
-                        If the character under the cursor is not syntax
-                        highlighted, nothing will be happen.
+<span class="Special">&lt;Plug&gt;</span>(textobj-syntax-i)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-syntax-i)">&lt;Plug&gt;(textobj-syntax-i)</span><span class="Ignore">*</span>
+			Select the syntax highlighted item under the cursor.
+			If the character under the cursor is not syntax
+			highlighted, nothing will be happen.
 
 
-<span class="Statement">DEFAULT KEY MAPPINGS                     </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-default-key-mappings">textobj-syntax-default-key-mappings</span><span class="Ignore">*</span>
+<span class="Statement">DEFAULT KEY MAPPINGS			 </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-default-key-mappings">textobj-syntax-default-key-mappings</span><span class="Ignore">*</span>
 
 textobj-syntax defines the following key mappings
 in Visual mode and Operator-pending mode automatically.
 See also <span class="Ignore">|</span><a href="textobj-syntax.html#g:textobj_syntax_no_default_key_mappings"><span class="Identifier">g:textobj_syntax_no_default_key_mappings</span></a><span class="Ignore">|</span>.
 
-        <span class="Special">{lhs}</span>  <span class="Special">{rhs}</span>
-        <span class="PreProc">-----  --------------------------      </span><span class="Ignore">      ~</span>
-        ay      <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-a)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-a)</span></a><span class="Ignore">|</span>          <span class="Ignore">*</span><span class="Constant" id="ay">ay</span><span class="Ignore">*</span> <span class="Ignore">*</span><span class="Constant" id="v_ay">v_ay</span><span class="Ignore">*</span>
-        iy      <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>          <span class="Ignore">*</span><span class="Constant" id="iy">iy</span><span class="Ignore">*</span> <span class="Ignore">*</span><span class="Constant" id="v_iy">v_iy</span><span class="Ignore">*</span>
+	<span class="Special">{lhs}</span>	<span class="Special">{rhs}</span>
+	<span class="PreProc">-----	--------------------------	</span><span class="Ignore">	~</span>
+	ay	<span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-a)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-a)</span></a><span class="Ignore">|</span>		<span class="Ignore">*</span><span class="Constant" id="ay">ay</span><span class="Ignore">*</span> <span class="Ignore">*</span><span class="Constant" id="v_ay">v_ay</span><span class="Ignore">*</span>
+	iy	<span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span>		<span class="Ignore">*</span><span class="Constant" id="iy">iy</span><span class="Ignore">*</span> <span class="Ignore">*</span><span class="Constant" id="v_iy">v_iy</span><span class="Ignore">*</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CUSTOMIZATION                                   </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-customization">textobj-syntax-customization</span><span class="Ignore">*</span>
+<span class="Statement">CUSTOMIZATION					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-customization">textobj-syntax-customization</span><span class="Ignore">*</span>
 
-                                    <span class="Ignore">*</span><span class="Constant" id="g:textobj_syntax_no_default_key_mappings">g:textobj_syntax_no_default_key_mappings</span><span class="Ignore">*</span>
+				    <span class="Ignore">*</span><span class="Constant" id="g:textobj_syntax_no_default_key_mappings">g:textobj_syntax_no_default_key_mappings</span><span class="Ignore">*</span>
 If you don't want the default key mappings
-        Put the following line in your vimrc.
+	Put the following line in your vimrc.
 <span class="Ignore">&gt;</span>
-<span class="Comment">                let g:textobj_syntax_no_default_key_mappings = 1</span>
+<span class="Comment">		let g:textobj_syntax_no_default_key_mappings = 1</span>
 <span class="Ignore">&lt;</span>
-        Then textobj-syntax doesn't define the default key mappings.
+	Then textobj-syntax doesn't define the default key mappings.
 
 If you want to (re)define the default key mappings
-        Use <span class="Ignore">|</span><a href="textobj-syntax.html#:TextobjSyntaxDefaultKeyMappings"><span class="Identifier">:TextobjSyntaxDefaultKeyMappings</span></a><span class="Ignore">|</span> to (re)define the default key
-        mappings.
+	Use <span class="Ignore">|</span><a href="textobj-syntax.html#:TextobjSyntaxDefaultKeyMappings"><span class="Identifier">:TextobjSyntaxDefaultKeyMappings</span></a><span class="Ignore">|</span> to (re)define the default key
+	mappings.
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">EXAMPLES                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-examples">textobj-syntax-examples</span><span class="Ignore">*</span>
+<span class="Statement">EXAMPLES					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-examples">textobj-syntax-examples</span><span class="Ignore">*</span>
 
 See <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-introduction"><span class="Identifier">textobj-syntax-introduction</span></a><span class="Ignore">|</span>.
 
@@ -169,7 +169,7 @@ See <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-int
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-bugs">textobj-syntax-bugs</span><span class="Ignore">*</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-bugs">textobj-syntax-bugs</span><span class="Ignore">*</span>
 
 - Because of the definition of the current syntax highlighting,
   <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-a)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-a)</span></a><span class="Ignore">|</span> and <span class="Ignore">|</span><a href="textobj-syntax.html#&lt;Plug&gt;(textobj-syntax-i)"><span class="Identifier">&lt;Plug&gt;(textobj-syntax-i)</span></a><span class="Ignore">|</span> may not select
@@ -187,10 +187,10 @@ See <span class="Ignore">|</span><a href="textobj-syntax.html#textobj-syntax-int
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-changelog">textobj-syntax-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="textobj-syntax-changelog">textobj-syntax-changelog</span><span class="Ignore">*</span>
 
-0.0.0   2009-07-18T05:30:23+09:00
-        - Initial version.
+0.0.0	2009-07-18T05:30:23+09:00
+	- Initial version.
 
 
 

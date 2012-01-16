@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
 <title>Vim: textobj-entire - Text objects for entire buffer</title>
-<meta name="Generator" content="Vim/7.2" />
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<head>
+<meta name="syntax" content="help" />
+<meta name="settings" content="ignore_folding,use_xhtml,use_css,pre_wrap" />
 <style type="text/css">
-<!--
-.Statement { color: #008080; font-weight: bold; }
-.Identifier { color: #804000; text-decoration: underline; }
-.PreProc { color: #c000c0; text-decoration: underline; }
-.Special { color: #c000c0; font-weight: bold; }
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
-.Ignore { color: #ffffff; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+.Identifier { color: #804000; text-decoration: underline; }
+.Statement { color: #008080; font-weight: bold; }
 .Constant { color: #0000c0; text-decoration: underline; }
--->
+.Ignore { color: #ffffff; }
+
 </style>
 </head>
 <body>
 <pre>
-<span class="Ignore">*</span><span class="Constant" id="textobj-entire.txt">textobj-entire.txt</span><span class="Ignore">*</span>    Text objects for entire buffer
+<span class="Ignore">*</span><span class="Constant" id="textobj-entire.txt">textobj-entire.txt</span><span class="Ignore">*</span>	Text objects for entire buffer
 
 Version 0.0.1
 Script ID: 2610
@@ -46,22 +46,22 @@ License: MIT license  {{{
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-<span class="Statement">CONTENTS                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-contents">textobj-entire-contents</span><span class="Ignore">*</span>
+<span class="Statement">CONTENTS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-contents">textobj-entire-contents</span><span class="Ignore">*</span>
 
-Introduction            <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-introduction"><span class="Identifier">textobj-entire-introduction</span></a><span class="Ignore">|</span>
-Interface               <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-interface"><span class="Identifier">textobj-entire-interface</span></a><span class="Ignore">|</span>
-  Commands                <span class="Ignore">|</span><span class="Identifier">textobj-entire-commands</span><span class="Ignore">|</span>
-  Functions               <span class="Ignore">|</span><span class="Identifier">textobj-entire-functions</span><span class="Ignore">|</span>
-  Mappings                <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-mappings"><span class="Identifier">textobj-entire-mappings</span></a><span class="Ignore">|</span>
-Examples                <span class="Ignore">|</span><span class="Identifier">textobj-entire-examples</span><span class="Ignore">|</span>
-Bugs                    <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-bugs"><span class="Identifier">textobj-entire-bugs</span></a><span class="Ignore">|</span>
-Changelog               <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-changelog"><span class="Identifier">textobj-entire-changelog</span></a><span class="Ignore">|</span>
+Introduction		<span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-introduction"><span class="Identifier">textobj-entire-introduction</span></a><span class="Ignore">|</span>
+Interface		<span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-interface"><span class="Identifier">textobj-entire-interface</span></a><span class="Ignore">|</span>
+  Commands		  <span class="Ignore">|</span><span class="Identifier">textobj-entire-commands</span><span class="Ignore">|</span>
+  Functions		  <span class="Ignore">|</span><span class="Identifier">textobj-entire-functions</span><span class="Ignore">|</span>
+  Mappings		  <span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-mappings"><span class="Identifier">textobj-entire-mappings</span></a><span class="Ignore">|</span>
+Examples		<span class="Ignore">|</span><span class="Identifier">textobj-entire-examples</span><span class="Ignore">|</span>
+Bugs			<span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-bugs"><span class="Identifier">textobj-entire-bugs</span></a><span class="Ignore">|</span>
+Changelog		<span class="Ignore">|</span><a href="textobj-entire.html#textobj-entire-changelog"><span class="Identifier">textobj-entire-changelog</span></a><span class="Ignore">|</span>
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTRODUCTION                                    </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-introduction">textobj-entire-introduction</span><span class="Ignore">*</span>
+<span class="Statement">INTRODUCTION					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-introduction">textobj-entire-introduction</span><span class="Ignore">*</span>
 
 <span class="Ignore">*</span><span class="Constant" id="textobj-entire">textobj-entire</span><span class="Ignore">*</span> is a Vim plugin to provide text objects to select the entire
 content of a buffer.
@@ -78,28 +78,28 @@ Latest version:
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">INTERFACE                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-interface">textobj-entire-interface</span><span class="Ignore">*</span>
+<span class="Statement">INTERFACE					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-interface">textobj-entire-interface</span><span class="Ignore">*</span>
 
 <span class="PreProc">------------------------------------------------------------------------------</span>
-<span class="Statement">MAPPINGS                                        </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-mappings">textobj-entire-mappings</span><span class="Ignore">*</span>
+<span class="Statement">MAPPINGS					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-mappings">textobj-entire-mappings</span><span class="Ignore">*</span>
 
 These key mappings are defined in Visual mode and Operator-pending mode.
 
-<span class="Special">&lt;Plug&gt;</span>(textobj-entire-a)                        <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-entire-a)">&lt;Plug&gt;(textobj-entire-a)</span><span class="Ignore">*</span>
-                        Select the entire content of the current buffer.
+<span class="Special">&lt;Plug&gt;</span>(textobj-entire-a)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-entire-a)">&lt;Plug&gt;(textobj-entire-a)</span><span class="Ignore">*</span>
+			Select the entire content of the current buffer.
 
-<span class="Special">&lt;Plug&gt;</span>(textobj-entire-i)                        <span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-entire-i)">&lt;Plug&gt;(textobj-entire-i)</span><span class="Ignore">*</span>
-                        Like <span class="Ignore">|</span><a href="textobj-entire.html#&lt;Plug&gt;(textobj-entire-a)"><span class="Identifier">&lt;Plug&gt;(textobj-entire-a)</span></a><span class="Ignore">|</span>, but leading and
-                        trailing empty lines are excluded.
+<span class="Special">&lt;Plug&gt;</span>(textobj-entire-i)			<span class="Ignore">*</span><span class="Constant" id="&lt;Plug&gt;(textobj-entire-i)">&lt;Plug&gt;(textobj-entire-i)</span><span class="Ignore">*</span>
+			Like <span class="Ignore">|</span><a href="textobj-entire.html#&lt;Plug&gt;(textobj-entire-a)"><span class="Identifier">&lt;Plug&gt;(textobj-entire-a)</span></a><span class="Ignore">|</span>, but leading and
+			trailing empty lines are excluded.
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CUSTOMIZING                                     </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-customizing">textobj-entire-customizing</span><span class="Ignore">*</span>
+<span class="Statement">CUSTOMIZING					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-customizing">textobj-entire-customizing</span><span class="Ignore">*</span>
 
-                                    <span class="Ignore">*</span><span class="Constant" id="g:textobj_entire_no_default_key_mappings">g:textobj_entire_no_default_key_mappings</span><span class="Ignore">*</span>
-                                            <span class="Ignore">*</span><span class="Constant" id=":TextobjEntireDefaultKeyMappings">:TextobjEntireDefaultKeyMappings</span><span class="Ignore">*</span>
+				    <span class="Ignore">*</span><span class="Constant" id="g:textobj_entire_no_default_key_mappings">g:textobj_entire_no_default_key_mappings</span><span class="Ignore">*</span>
+					    <span class="Ignore">*</span><span class="Constant" id=":TextobjEntireDefaultKeyMappings">:TextobjEntireDefaultKeyMappings</span><span class="Ignore">*</span>
 This plugin will define the following key mappings in Visual mode and
 Operator-pending mode automatically.  If you don't want these key mappings,
 define <span class="Ignore">|</span><a href="textobj-entire.html#g:textobj_entire_no_default_key_mappings"><span class="Identifier">g:textobj_entire_no_default_key_mappings</span></a><span class="Ignore">|</span> before this plugin is loaded
@@ -107,16 +107,16 @@ define <span class="Ignore">|</span><a href="textobj-entire.html#g:textobj_entir
 to redefine these key mappings.  This command doesn't override existing <span class="Special">{lhs}</span>s
 unless [!] is given.
 
-        <span class="Special">{lhs}</span>  <span class="Special">{rhs}</span>                    <span class="Ignore">~</span>
-        <span class="PreProc">-----  ----------------------</span><span class="Ignore">   ~</span>
-        ae      <span class="Special">&lt;Plug&gt;</span>(textobj-entire-a)
-        ie      <span class="Special">&lt;Plug&gt;</span>(textobj-entire-i)
+	<span class="Special">{lhs}</span>	<span class="Special">{rhs}</span>			<span class="Ignore">~</span>
+	<span class="PreProc">-----	----------------------</span><span class="Ignore">	~</span>
+	ae	<span class="Special">&lt;Plug&gt;</span>(textobj-entire-a)
+	ie	<span class="Special">&lt;Plug&gt;</span>(textobj-entire-i)
 
 
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">BUGS                                            </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-bugs">textobj-entire-bugs</span><span class="Ignore">*</span>
+<span class="Statement">BUGS						</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-bugs">textobj-entire-bugs</span><span class="Ignore">*</span>
 
 - <span class="Special">[count]</span> is just ignored.
 
@@ -126,13 +126,13 @@ unless [!] is given.
 
 
 <span class="PreProc">==============================================================================</span>
-<span class="Statement">CHANGELOG                                       </span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-changelog">textobj-entire-changelog</span><span class="Ignore">*</span>
+<span class="Statement">CHANGELOG					</span><span class="Ignore">*</span><span class="Constant" id="textobj-entire-changelog">textobj-entire-changelog</span><span class="Ignore">*</span>
 
-0.0.1   2009-08-13T21:21:01+09:00
-        - Fix a typo on the name of a variable.
+0.0.1	2009-08-13T21:21:01+09:00
+	- Fix a typo on the name of a variable.
 
-0.0.0   2009-04-15T14:41:17+09:00
-        - Initial version.
+0.0.0	2009-04-15T14:41:17+09:00
+	- Initial version.
 
 
 
