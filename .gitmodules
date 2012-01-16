@@ -100,9 +100,6 @@
 [submodule "submodules/wwwsearch"]
 	path = submodules/wwwsearch
 	url = ../vim-wwwsearch
-[submodule "submodules/xire"]
-	path = submodules/xire
-	url = ../vim-xire
 [submodule "submodules/xml-autons"]
 	path = submodules/xml-autons
 	url = ../vim-xml-autons
