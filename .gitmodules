@@ -109,3 +109,6 @@
 [submodule "submodules/xml-move"]
 	path = submodules/xml-move
 	url = ../vim-xml-move
+[submodule "submodules/textobj-line"]
+	path = submodules/textobj-line
+	url = ../vim-textobj-line
